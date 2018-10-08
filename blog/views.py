@@ -1,10 +1,16 @@
 from django.shortcuts import render, HttpResponse
+from .models import Blog
 
 
 
 def post_list(request):
-    selam = "Burada Gönderiler Listelenecek"
-    return HttpResponse(selam)
+
+    posts = Blog.objects.all()
+    print(posts)
+
+    context = {'posts':posts}
+
+    return render(request,'blog/post-list.html',context)
 
 
 def post_update(request):

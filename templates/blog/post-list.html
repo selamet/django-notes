@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h3> POST LIST </h3>
+
+
+
+{% for post in posts %}
+
+   <h3>{{ post }}</h3>
+    <p>{{ post.content }} - {{ post.created_date }}</p>
+
+{% endfor %}
+
+
+</body>
+</html>
