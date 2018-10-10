@@ -14,7 +14,8 @@
 
    <h3>{{ post }}</h3>
     <p>{{ post.content }} - {{ post.created_date }}</p>
-
+{% empty %}
+        <p>Aradığınız kriterde blog bulunamadı</p>
 {% endfor %}
 
 

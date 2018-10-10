@@ -1,12 +1,38 @@
 from django.shortcuts import render, HttpResponse
 from .models import Blog
+from .forms import IletisimForm
 
+mesajlar = []
+
+def iletisim(request):
+
+    form = IletisimForm(data=request.GET or None)
+
+    if form.is_valid():
+
+        isim = form.cleaned_data.get('isim')
+        soyisim = form.cleaned_data.get('soyisim')
+        email = form.cleaned_data.get('email')
+        icerik = form.cleaned_data.get('icerik')
+        data = {'isim':isim, 'soyisim':soyisim, 'email':email , 'icerik':icerik}
+        mesajlar.append(data)
+
+        return render(request, 'iletisim.html',context ={'mesajlar':mesajlar,'form':form} )
+
+        print(isim,soyisim,email,icerik)
+
+
+    return render(request,'iletisim.html',context = {'form':form})
 
 
 def post_list(request):
 
     posts = Blog.objects.all()
-    print(posts)
+    print(request.GET)
+    gelen_deger = request.GET.get('id',None)
+
+    if gelen_deger:
+        posts = posts.filter(id = gelen_deger)
 
     context = {'posts':posts}
 

@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}
+    iletişim
+{% endblock %}
+
+{% block icerik %}
+
+    <div class="col-lg-5">
+        <h1 class="page-header">İletişim</h1>
+
+
+
+
+        <form method="get" action="{% url 'iletisim' %}">
+    {% for field in form %}
+
+       <div class="form-group">
+            <div class="row">
+                 <div class = "col-lg-2">
+                    <label class="control-label">{{ field.label }}</label>
+                  </div>
+              <div class="col-lg-10">
+                 {{ field }}
+
+                  {% if field.errors %}
+                        {% for error in field.errors %}
+                            <span class="text-danger">{{ error }}</span>
+                        {% endfor %}
+
+                  {% endif %}
+             </div>
+           </div>
+       </div>
+    {% endfor %}
+            <input type="submit" class="btn btn-sm btn-success">
+    </form>
+
+    </div>
+
+    <div class ="col-lg-5">
+        <h1 class="page-header">Mesajlar</h1>
+            {% for mesaj in mesajlar %}
+                <div class="form-group">
+                    <p class="lead">{{ mesaj.isim }} {{ mesaj.soyisim }} {{ mesaj.email }} {{ mesaj.icerik }}</p>
+
+                </div>
+
+
+                {% empty %}
+                    <p class="lead">Henüz bir mesaj bulunamadı</p>
+            {% endfor %}
+
+
+</div>
+
+{% endblock %}

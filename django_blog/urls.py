@@ -18,11 +18,12 @@ from django.urls import path
 from django.conf.urls import url,include
 from django.conf.urls.static import static
 from django.conf import settings
-
+from blog.views import iletisim
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/', include('blog.urls'))
+    path('posts/', include('blog.urls')),
+    path('iletisim/',iletisim, name ='iletisim' )
 
 ]
 
