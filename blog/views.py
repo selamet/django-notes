@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse
 from .models import Blog
-from .forms import IletisimForm
+from .forms import IletisimForm,BlogForm
 
 mesajlar = []
 
@@ -48,8 +48,14 @@ def post_delete(request):
     return HttpResponse(selamet)
 
 def post_create(request):
-    merhaba ="<b> Burada gönderi Oluşturulacaktır.<b>"
-    return HttpResponse(merhaba)
+    form =BlogForm()
+    if request.method == 'POST':
+        print(request.POST)
+        form =BlogForm(data = request.POST)
+        if form.is_valid():
+            form.save()
+    return render(request,'blog/post-create.html',context={'form':form})
+
 
 
 def sanatcilar(request,sayi):
