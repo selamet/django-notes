@@ -1,4 +1,4 @@
-from django.shortcuts import render, HttpResponse
+from django.shortcuts import render, HttpResponse,get_object_or_404,HttpResponseRedirect,reverse
 from .models import Blog
 from .forms import IletisimForm,BlogForm
 
@@ -26,9 +26,8 @@ def iletisim(request):
 
 
 def post_list(request):
-
+    print(reverse('post-list'))
     posts = Blog.objects.all()
-    print(request.GET)
     gelen_deger = request.GET.get('id',None)
 
     if gelen_deger:
@@ -37,6 +36,13 @@ def post_list(request):
     context = {'posts':posts}
 
     return render(request,'blog/post-list.html',context)
+
+def post_detail(request,pk):
+
+    blog =get_object_or_404(Blog,pk=pk)
+
+    return render(request,'blog/post-detail.html',context={'blog':blog})
+
 
 
 def post_update(request):
@@ -53,7 +59,10 @@ def post_create(request):
         print(request.POST)
         form =BlogForm(data = request.POST)
         if form.is_valid():
-            form.save()
+            blog = form.save()
+            #url = reverse('post-detail',kwargs={'pk':blog.pk})
+            #print(url)
+            return HttpResponseRedirect(reverse('post-detail',kwargs={'pk':blog.pk})) #post detail sayfasına yönlendirir.
     return render(request,'blog/post-create.html',context={'form':form})
 
 
