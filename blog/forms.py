@@ -49,7 +49,7 @@ class BlogForm(forms.ModelForm):
 
     class Meta:
         model = Blog
-        fields =['title','content'] # Blog modelindeki hangi alanları ile çalışacaksın
+        fields =['title','content','kategoriler'] # Blog modelindeki hangi alanları ile çalışacaksın
 
     def __init__(self,*args,**kwargs):
         super(BlogForm, self).__init__(*args,**kwargs) #kalıtım aldığı init fonksiyonları

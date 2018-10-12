@@ -3,14 +3,25 @@ from django.shortcuts import reverse
 from unidecode import unidecode
 from django.template.defaultfilters import slugify
 
+
+class Kategori(models.Model):
+    isim = models.CharField(max_length=10,verbose_name='Kategori İsmi')
+
+    class Meta:
+        verbose_name_plural ='Kategoriler'
+
+    def __str__(self):
+        return self.isim
+
 class Blog(models.Model):
+
+
     title = models.CharField(max_length = 100 ,blank = True, null =True, verbose_name='Başlık ',
                              help_text = 'Başlık bilgisi burada girilir.')
     content = models.TextField(max_length=1000, verbose_name='İçerik', null = True , blank = False)
-
     created_date = models.DateField(auto_now_add=True, auto_now=False)
-
     slug = models.SlugField(null=True,unique=True,editable=False)
+    kategoriler = models.ManyToManyField(to=Kategori,related_name='blog',null=True)
 
     class Meta:
         verbose_name = 'Gönderi'

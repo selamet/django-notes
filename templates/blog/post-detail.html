@@ -25,6 +25,9 @@
                 </div>
 
                     <p class="lead"> {{ blog.content|linebreaksbr }}</p>
+                    <p class="lead">
+                        Kategoriler: {{ blog.kategoriler.all|join:',' }}
+                    </p>
 
             </div>
         </div>
