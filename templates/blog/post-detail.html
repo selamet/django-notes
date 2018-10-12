@@ -17,17 +17,34 @@
 
 
                 <h2 class="page-header"> <a href="{%url 'post-list' %}">  <span class="glyphicon glyphicon-circle-arrow-left"></span></a> <a>{{ blog.title|upper }}</a> <small class="pull-right" >{{ blog.created_date }}</small> </h2>
-                <div class="row">
-                    <div class="col-lg-3 pull-right">
+
+           <div class="row">
+               <div class="col-lg-12">
+                   {% if blog.image %}
+                       <img class="img-responsive" src="{{ blog.image.url }}" alt="">
+
+                   {% endif %}
+
+               </div>
+
+           </div>
+            <div class="row">
+                <div class="col-lg-12">
+                   <p class="lead"> {{ blog.content|linebreaksbr }}</p>
+                    <p class="lead">
+                        Kategoriler: {{ blog.kategoriler.all|join:',' }}
+                    </p>
+
+                </div>
+
+            </div>
+            <div class="row">
+                    <div class="col-lg-3 ">
                          <a href="{% url 'post-update' blog.slug %}" class=" btn btn-primary">Güncelle</a>
                          <a href="{% url 'post-delete' blog.slug %}" class=" btn btn-danger">Sil</a>
                     </div>
                 </div>
 
-                    <p class="lead"> {{ blog.content|linebreaksbr }}</p>
-                    <p class="lead">
-                        Kategoriler: {{ blog.kategoriler.all|join:',' }}
-                    </p>
 
             </div>
         </div>

@@ -48,7 +48,7 @@ def post_detail(request,slug):
 
 def post_update(request,slug):
     blog = get_object_or_404(Blog,slug=slug)
-    form = BlogForm(instance=blog, data = request.POST or None) # bloğun içerisindeki değerleri çeker
+    form = BlogForm(instance=blog, data = request.POST or None, files=request.FILES or None) # bloğun içerisindeki değerleri çeker
     if form.is_valid():
         form.save()
         msg = 'Tebrikler %s isimli gönderiniz başarı ile güncellendi.' % (blog.title)
@@ -71,7 +71,7 @@ def post_create(request):
     form =BlogForm()
     if request.method == 'POST':
        # print(request.POST)
-        form =BlogForm(data = request.POST)
+        form =BlogForm(data = request.POST,files=request.FILES)
         if form.is_valid():
             blog = form.save()
             msg = 'Tebrikler <strong> %s </strong> isimli gönderiniz başarı ile oluşturuldu.'%(blog.title)

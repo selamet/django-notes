@@ -21,7 +21,8 @@ class Blog(models.Model):
     content = models.TextField(max_length=1000, verbose_name='İçerik', null = True , blank = False)
     created_date = models.DateField(auto_now_add=True, auto_now=False)
     slug = models.SlugField(null=True,unique=True,editable=False)
-    kategoriler = models.ManyToManyField(to=Kategori,related_name='blog',null=True)
+    kategoriler = models.ManyToManyField(to=Kategori,related_name='blog')
+    image = models.ImageField(default='default/marijuana.jpg', verbose_name='Resim',null=True,help_text='Kapak Fotoğrafı Yükleyiniz',blank=True)
 
     class Meta:
         verbose_name = 'Gönderi'
@@ -36,6 +37,12 @@ class Blog(models.Model):
     def get_absolute_url(self):
         return reverse('post-detail',kwargs={'slug':self.slug})
 
+
+    def get_image(self):
+        if self.image:
+            return self.image.url
+        else:
+            return '/media/default/marijuana.jpg'
 
     def get_unique_slug(self):
         sayi = 0

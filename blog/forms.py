@@ -49,7 +49,7 @@ class BlogForm(forms.ModelForm):
 
     class Meta:
         model = Blog
-        fields =['title','content','kategoriler'] # Blog modelindeki hangi alanları ile çalışacaksın
+        fields =['title','image','content','kategoriler'] # Blog modelindeki hangi alanları ile çalışacaksın
 
     def __init__(self,*args,**kwargs):
         super(BlogForm, self).__init__(*args,**kwargs) #kalıtım aldığı init fonksiyonları
@@ -57,3 +57,12 @@ class BlogForm(forms.ModelForm):
            # print(field, self.fields[field])
             self.fields[field].widget.attrs={'class':'form-control'}
             self.fields['content'].widget=forms.Textarea(attrs={'class':'form-control'})
+
+
+    def clean_content(self):
+        icerik = self.cleaned_data.get('content')
+        if len(icerik) <250:
+            uzunluk =len(icerik)
+            msg='Lütfen en az 250 karakter giriniz girilen karakter sayısı (%s)'%(uzunluk)
+            raise forms.ValidationError(msg)
+        return icerik
