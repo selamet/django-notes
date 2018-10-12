@@ -45,13 +45,22 @@ def post_detail(request,pk):
 
 
 
-def post_update(request):
-    deneme = "Burada Gönderiler Güncellecektir"
-    return HttpResponse(deneme)
+def post_update(request,pk):
+    blog = get_object_or_404(Blog,pk=pk)
+    form = BlogForm(instance=blog, data = request.POST or None) # bloğun içerisindeki değerleri çeker
+    if form.is_valid():
+        form.save()
+        return HttpResponseRedirect(blog.get_absolute_url())
+    context = {'form':form,'blog':blog}
 
-def post_delete(request):
-    selamet = "Burada Gönderiler Silecektir"
-    return HttpResponse(selamet)
+
+    return render(request,'blog/post-update.html',context)
+
+def post_delete(request,pk):
+    blog = get_object_or_404(Blog,pk=pk)
+    blog.delete()
+
+    return HttpResponseRedirect(reverse('post-list'))
 
 def post_create(request):
     form =BlogForm()
@@ -62,7 +71,7 @@ def post_create(request):
             blog = form.save()
             #url = reverse('post-detail',kwargs={'pk':blog.pk})
             #print(url)
-            return HttpResponseRedirect(reverse('post-detail',kwargs={'pk':blog.pk})) #post detail sayfasına yönlendirir.
+            return HttpResponseRedirect(blog.get_absolute_url()) #post detail sayfasına yönlendirir.
     return render(request,'blog/post-create.html',context={'form':form})
 
 

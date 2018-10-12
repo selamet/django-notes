@@ -1,4 +1,5 @@
 from django.db import models
+from django.shortcuts import reverse
 
 class Blog(models.Model):
     title = models.CharField(max_length = 100 ,blank = True, null =True, verbose_name='Başlık ',
@@ -15,3 +16,7 @@ class Blog(models.Model):
 
     def __str__(self):
         return '%s' % (self.title)
+
+
+    def get_absolute_url(self):
+        return reverse('post-detail',kwargs={'pk':self.pk})
