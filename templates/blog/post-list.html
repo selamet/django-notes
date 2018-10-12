@@ -12,10 +12,12 @@
                 <h1 class="page-header"> <span> Post List </span>
                     <small class="pull-right"><a href="{% url 'post-create' %}"> Post Create</a></small> </h1>
                 {% for post in posts %}
-                    <h2><a href="{% url 'post-detail' post.pk %}"> {{ post.title }}</a>
+                    <h2><a href="{% url 'post-detail' post.slug %}"> {{ post.title }}</a>
                         <small>{{ post.created_date }}</small>
                     </h2>
                     <p>{{ post.content }}</p>
+                     <p>slug alanı: {{ post.slug }}</p>
+
                     {% empty %}
                         <p>Aradağınız Kiriteder Bir Blog Bulunamadı</p>
                 {% endfor %}

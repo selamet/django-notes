@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse,get_object_or_404,HttpResponseRedirect,reverse
 from .models import Blog
 from .forms import IletisimForm,BlogForm
+from django.contrib import messages
 
 mesajlar = []
 
@@ -37,59 +38,47 @@ def post_list(request):
 
     return render(request,'blog/post-list.html',context)
 
-def post_detail(request,pk):
+def post_detail(request,slug):
 
-    blog =get_object_or_404(Blog,pk=pk)
+    blog =get_object_or_404(Blog,slug=slug)
 
     return render(request,'blog/post-detail.html',context={'blog':blog})
 
 
 
-def post_update(request,pk):
-    blog = get_object_or_404(Blog,pk=pk)
+def post_update(request,slug):
+    blog = get_object_or_404(Blog,slug=slug)
     form = BlogForm(instance=blog, data = request.POST or None) # bloğun içerisindeki değerleri çeker
     if form.is_valid():
         form.save()
+        msg = 'Tebrikler %s isimli gönderiniz başarı ile güncellendi.' % (blog.title)
+        messages.success(request, msg, extra_tags='info')
         return HttpResponseRedirect(blog.get_absolute_url())
     context = {'form':form,'blog':blog}
 
 
     return render(request,'blog/post-update.html',context)
 
-def post_delete(request,pk):
-    blog = get_object_or_404(Blog,pk=pk)
+def post_delete(request,slug):
+    blog = get_object_or_404(Blog,slug=slug)
     blog.delete()
+    msg = 'Tebrikler %s isimli gönderiniz başarı ile silindi.' % (blog.title)
+    messages.success(request,msg,extra_tags='danger')
 
     return HttpResponseRedirect(reverse('post-list'))
 
 def post_create(request):
     form =BlogForm()
     if request.method == 'POST':
-        print(request.POST)
+       # print(request.POST)
         form =BlogForm(data = request.POST)
         if form.is_valid():
             blog = form.save()
-            #url = reverse('post-detail',kwargs={'pk':blog.pk})
-            #print(url)
+            msg = 'Tebrikler <strong> %s </strong> isimli gönderiniz başarı ile oluşturuldu.'%(blog.title)
+            messages.success(request,msg,extra_tags='success')
+
             return HttpResponseRedirect(blog.get_absolute_url()) #post detail sayfasına yönlendirir.
     return render(request,'blog/post-create.html',context={'form':form})
 
 
 
-def sanatcilar(request,sayi):
-    sanatcilar_sozluk = {
-
-        '1': 'Eminem',
-        '2': 'Tupack',
-        '3': 'Tarkan',
-        '4': 'Aleyna Tilki',
-        '5': 'Müslüm Gürses',
-        '6': 'Neşet Ertaş',
-        '98': 'teoman',
-        '9': 'Selamet Şamlı',
-        'selamet':'Yes'
-
-    }
-
-    sanatci = sanatcilar_sozluk.get(sayi,"Bu id numarasına ait sanatci bulunamadi")
-    return HttpResponse(sanatci)
