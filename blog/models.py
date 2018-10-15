@@ -1,7 +1,7 @@
 from django.db import models
 from django.shortcuts import reverse
 from unidecode import unidecode
-from django.template.defaultfilters import slugify
+from django.template.defaultfilters import slugify,safe
 from uuid import uuid4
 import os
 
@@ -25,12 +25,17 @@ class Kategori(models.Model):
 class Blog(models.Model):
 
 
+    YAYIN_TASLAK = [(None,'Lütfen birini seçiniz'),('yayin','YAYIN'),('taslak','TASLAK')]
+
+
     title = models.CharField(max_length = 100 ,blank = True, null =True, verbose_name='Başlık ',
                              help_text = 'Başlık bilgisi burada girilir.')
     content = models.TextField(max_length=1000, verbose_name='İçerik', null = True , blank = False)
     created_date = models.DateField(auto_now_add=True, auto_now=False)
     slug = models.SlugField(null=True,unique=True,editable=False)
 
+
+    yayin_taslak = models.CharField(choices=YAYIN_TASLAK,max_length=6, null = True, blank=False)
     unique_id = models.CharField(max_length=100,editable = True ,null=True)
     kategoriler = models.ManyToManyField(to=Kategori,related_name='blog')
     image = models.ImageField(default='default/marijuana.jpg', verbose_name='Resim',upload_to=upload_to,
@@ -45,6 +50,11 @@ class Blog(models.Model):
     def __str__(self):
         return '%s' % (self.title)
 
+
+    def get_yayin_taslak_html(self):
+        if self.yayin_taslak == 'taslak':
+            return safe('<span class="label label-{1}">{0}</span>'.format(self.get_yayin_taslak_display(),'danger'))
+        return safe('<span class="label label-{1}">{0}</span>'.format(self.get_yayin_taslak_display(),'success'))
 
     def get_absolute_url(self):
         return reverse('post-detail',kwargs={'slug':self.slug})
