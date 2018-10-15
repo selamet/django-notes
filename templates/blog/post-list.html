@@ -9,10 +9,48 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="col-lg-8 col-lg-offset-2">
-                <h1 class="page-header"> <span> Post List </span>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <h1 class="page-header"> <span> Post List </span> </h1>
+                </div>
+
+            </div>
                     <small class="pull-right"><a href="{% url 'post-create' %}"> Post Create</a></small> </h1>
+
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <form action="{% url 'post-list' %}">
+                        <div class="form-group">
+
+                  {% for foo in form %}
+                            <div class="col-lg-4">
+                                {{ foo }}
+                            {% for error in foo.errors %}
+                                <span class="text-danger"><b>{{ error }}</b></span>
+
+                            {% endfor %}
+
+                            </div>
+                        <div class="col-lg-3">
+                            <input type="submit" class="btn btn-success" value="Sorgula">
+
+                        </div>
+
+
+                  {% endfor %}
+
+                        </div>
+</form>
+                </div>
+
+            </div>
+
+
                 {% for post in posts %}
                     <h3><a href="{% url 'post-detail' post.slug %}"> {{ post.title }}</a>
+                        {{ post.get_yayin_taslak_html }}
                         <small style="font-size:small"> <span class="glyphicon glyphicon-time"></span> {{ post.created_date }}</small>
                     </h3>
 

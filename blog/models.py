@@ -50,11 +50,16 @@ class Blog(models.Model):
     def __str__(self):
         return '%s' % (self.title)
 
+    @classmethod
+    def get_taslak_or_yayin(cls,taslak_yayin):
+        return cls.objects.filter(yayin_taslak=taslak_yayin)
+
+
 
     def get_yayin_taslak_html(self):
         if self.yayin_taslak == 'taslak':
             return safe('<span class="label label-{1}">{0}</span>'.format(self.get_yayin_taslak_display(),'danger'))
-        return safe('<span class="label label-{1}">{0}</span>'.format(self.get_yayin_taslak_display(),'success'))
+        return safe('<span class="label label-{1}">{0}</span>'.format(self.get_yayin_taslak_display(),'primary'))
 
     def get_absolute_url(self):
         return reverse('post-detail',kwargs={'slug':self.slug})

@@ -66,3 +66,13 @@ class BlogForm(forms.ModelForm):
             msg='Lütfen en az 250 karakter giriniz girilen karakter sayısı (%s)'%(uzunluk)
             raise forms.ValidationError(msg)
         return icerik
+
+
+class PostSorugForm(forms.Form):
+    YAYIN_TASLAK = [('all','HEPSİ'),('yayin','YAYIN'),('taslak','TASLAK')]
+
+    taslak_yayin = forms.ChoiceField(label='', widget=forms.Select(attrs={'class':'form-control'}),
+                                          choices=YAYIN_TASLAK,required=True)
+
+
+

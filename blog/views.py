@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse,get_object_or_404,HttpResponseRedirect,reverse
 from .models import Blog
-from .forms import IletisimForm,BlogForm
+from .forms import IletisimForm,BlogForm,PostSorugForm
 from django.contrib import messages
 
 mesajlar = []
@@ -27,14 +27,15 @@ def iletisim(request):
 
 
 def post_list(request):
-    print(reverse('post-list'))
     posts = Blog.objects.all()
-    gelen_deger = request.GET.get('id',None)
+    form = PostSorugForm(data=request.GET or None)
+    if form.is_valid():
+        taslak_yayin = form.cleaned_data.get('taslak_yayin')
+        if taslak_yayin != 'all':
+            posts = Blog.get_taslak_or_yayin(taslak_yayin)
 
-    if gelen_deger:
-        posts = posts.filter(id = gelen_deger)
 
-    context = {'posts':posts}
+    context = {'posts':posts,'form':form}
 
     return render(request,'blog/post-list.html',context)
 
