@@ -3,6 +3,7 @@ from .models import Blog
 from .forms import IletisimForm,BlogForm,PostSorugForm
 from django.contrib import messages
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
 
 mesajlar = []
 
@@ -29,28 +30,37 @@ def iletisim(request):
 
 def post_list(request):
     posts = Blog.objects.all()
+    page = request.GET.get('page',1)
     form = PostSorugForm(data=request.GET or None)
     if form.is_valid():
-        taslak_yayin = form.cleaned_data.get('taslak_yayin')
+        taslak_yayin = form.cleaned_data.get('taslak_yayin',None)
         search = form.cleaned_data.get('search',None)
         if search:
             posts = posts.filter(
                 Q(content__icontains=search) | Q(title__icontains=search) | Q(kategoriler__isim__icontains=search)).distinct()
-        if taslak_yayin != 'all':
+        if taslak_yayin and taslak_yayin != 'all':
             posts = posts.filter(yayin_taslak=taslak_yayin)
+
+    paginator = Paginator(posts,3)
+    try:
+        posts = paginator.page(page)
+    except EmptyPage:
+        posts = paginator.page(paginator.num_pages)
+    except PageNotAnInteger:
+        posts = paginator.page(1)
+
 
 
     context = {'posts':posts,'form':form}
-
     return render(request,'blog/post-list.html',context)
+
+
 
 def post_detail(request,slug):
 
     blog =get_object_or_404(Blog,slug=slug)
 
     return render(request,'blog/post-detail.html',context={'blog':blog})
-
-
 
 def post_update(request,slug):
     blog = get_object_or_404(Blog,slug=slug)
