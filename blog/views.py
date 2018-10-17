@@ -2,6 +2,7 @@ from django.shortcuts import render, HttpResponse,get_object_or_404,HttpResponse
 from .models import Blog
 from .forms import IletisimForm,BlogForm,PostSorugForm
 from django.contrib import messages
+from django.db.models import Q
 
 mesajlar = []
 
@@ -31,8 +32,12 @@ def post_list(request):
     form = PostSorugForm(data=request.GET or None)
     if form.is_valid():
         taslak_yayin = form.cleaned_data.get('taslak_yayin')
+        search = form.cleaned_data.get('search',None)
+        if search:
+            posts = posts.filter(
+                Q(content__icontains=search) | Q(title__icontains=search) | Q(kategoriler__isim__icontains=search)).distinct()
         if taslak_yayin != 'all':
-            posts = Blog.get_taslak_or_yayin(taslak_yayin)
+            posts = posts.filter(yayin_taslak=taslak_yayin)
 
 
     context = {'posts':posts,'form':form}

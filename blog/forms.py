@@ -70,7 +70,8 @@ class BlogForm(forms.ModelForm):
 
 class PostSorugForm(forms.Form):
     YAYIN_TASLAK = [('all','HEPSİ'),('yayin','YAYIN'),('taslak','TASLAK')]
-
+    search = forms.CharField(required=False,max_length=500, widget=forms.TextInput(attrs={'placeholder':'Bir şeyler arayınız',
+                                                                                          'class':'form-control'}))
     taslak_yayin = forms.ChoiceField(label='', widget=forms.Select(attrs={'class':'form-control'}),
                                           choices=YAYIN_TASLAK,required=True)
 
