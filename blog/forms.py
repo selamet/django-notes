@@ -46,7 +46,6 @@ class IletisimForm(forms.Form):
 
 
 class BlogForm(forms.ModelForm):
-
     class Meta:
         model = Blog
         fields =['title','image','content','yayin_taslak','kategoriler'] # Blog modelindeki hangi alanları ile çalışacaksın
@@ -61,7 +60,7 @@ class BlogForm(forms.ModelForm):
 
     def clean_content(self):
         icerik = self.cleaned_data.get('content')
-        if len(icerik) <250:
+        if len(icerik) <10:
             uzunluk =len(icerik)
             msg='Lütfen en az 250 karakter giriniz girilen karakter sayısı (%s)'%(uzunluk)
             raise forms.ValidationError(msg)

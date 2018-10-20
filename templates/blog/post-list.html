@@ -60,7 +60,7 @@
 
                         <ul class="pagination">
                         {% if posts.has_previous %}
-                          <li><a href="?page={{ posts.previous_page_number }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }} {% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&laquo;</a></li>
+                          <li><a href="?page={{ posts.previous_page_number }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&laquo;</a></li>
                         {% else %}
                           <li class="disabled"><span>&laquo;</span></li>
                         {% endif %}
@@ -70,12 +70,12 @@
                             <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span>
                             </li>
                           {% else %}
-                            <li><a href="?page={{ i }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }} {% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ i }}</a></li>
+                            <li><a href="?page={{ i }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ i }}</a></li>
                           {% endif %}
                         {% endfor %}
 
                         {% if posts.has_next %}
-                          <li><a href="?page={{ posts.next_page_number }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }} {% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&raquo;</a></li>
+                          <li><a href="?page={{ posts.next_page_number }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&raquo;</a></li>
                         {% else %}
                           <li class="disabled"><span>&raquo;</span></li>
                         {% endif %}

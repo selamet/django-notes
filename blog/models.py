@@ -6,11 +6,16 @@ from uuid import uuid4
 import os
 
 
+
 def upload_to(instance, filename):
     uzanti = filename.split('.')[-1]
     new_name = "%s.%s"%(str(uuid4()),uzanti)
     unique_id = instance.unique_id
     return os.path.join('blog',unique_id,new_name)
+
+
+
+
 
 
 class Kategori(models.Model):
@@ -22,15 +27,13 @@ class Kategori(models.Model):
     def __str__(self):
         return self.isim
 
+
+
 class Blog(models.Model):
-
-
     YAYIN_TASLAK = [(None,'Lütfen birini seçiniz'),('yayin','YAYIN'),('taslak','TASLAK')]
-
-
     title = models.CharField(max_length = 100 ,blank = True, null =True, verbose_name='Başlık ',
                              help_text = 'Başlık bilgisi burada girilir.')
-    content = models.TextField(max_length=1000, verbose_name='İçerik', null = True , blank = False)
+    content = models.TextField(max_length=5000, verbose_name='İçerik', null = True , blank = False)
     created_date = models.DateField(auto_now_add=True, auto_now=False)
     slug = models.SlugField(null=True,unique=True,editable=False)
 
@@ -94,3 +97,20 @@ class Blog(models.Model):
 
 
         super(Blog,self).save(*args,**kwargs)
+
+class Comment(models.Model):
+    blog = models.ForeignKey(Blog,null=True,on_delete=True)
+    name =models.CharField(blank=True,null=True, verbose_name="isim",max_length=50)
+    surname = models.CharField(blank=True,null=True, verbose_name="Soyisim",max_length=50)
+    email = models.EmailField(null=True,blank=False,verbose_name='Email',help_text='Bu alanın girilmesi gerek')
+    content = models.TextField(null=True,blank=False, verbose_name='Yorum',help_text='Fikrinizi Yazınız',
+                               max_length=1000)
+    comment_time = models.DateTimeField(auto_now_add=True,null=True)
+
+
+    class Meta:
+        verbose_name_plural = 'Yorumlar'
+
+    def __str__(self):
+        return '%s%s'%(self.email,self.blog)
+
