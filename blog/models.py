@@ -106,11 +106,11 @@ class Blog(models.Model):
         return len(self.get_blog_comment()) # Yorum sayısını döndürür.
 
 class Comment(models.Model):
-    blog = models.ForeignKey(Blog,null=True,on_delete=True, related_name='comment')
-    name = models.CharField(blank=True,null=True, verbose_name="isim",max_length=50)
-    surname = models.CharField(blank=True,null=True, verbose_name="Soyisim",max_length=50)
+    blog = models.ForeignKey(Blog, null=True, on_delete=True, related_name='comment')
+    name = models.CharField(blank=True, null=True, verbose_name="isim", max_length=50)
+    surname = models.CharField(blank=True ,null=True, verbose_name="Soyisim", max_length=50)
     email = models.EmailField(null=True,blank=False,verbose_name='Email',help_text='Bu alanın girilmesi gerek')
-    content = models.TextField(null=True,blank=False, verbose_name='Yorum',help_text='Fikrinizi Yazınız',
+    comment = models.TextField(null=True, blank=False, verbose_name='Yorum', help_text='Fikrinizi Yazınız',
                                max_length=1000)
     comment_time = models.DateTimeField(auto_now_add=True,null=True)
 

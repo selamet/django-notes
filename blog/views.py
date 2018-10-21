@@ -64,7 +64,8 @@ def post_detail(request,slug):
 
     return render(request,'blog/post-detail.html',context={'blog':blog,'form':form})
 
-def add_comment(request,slug):
+def add_comment(request, slug):
+
     if request.method == 'GET':
         return HttpResponseBadRequest()
     blog = get_object_or_404(Blog, slug=slug)
