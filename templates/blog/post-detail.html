@@ -50,6 +50,61 @@
                 </div>
 
 
+            <div class="row">
+                <h2 class="page-header">
+                    Yorum Ekle
+                </h2>
+                <form action="{% url 'add-comment' blog.slug %}" method="post">
+                {% csrf_token %}
+                {{ form.media }}
+                {% for field in form %}
+                    <div class="row">
+                        <div class="col-lg-9 col-lg-offset-2">
+                            <div class="form-group">
+                                {{ field.label_tag }}
+                                {{ field }}
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                {% endfor %}
+
+            <div class="row">
+                        <div class="col-lg-9 col-lg-offset-2">
+                            <div class="form-group">
+                <input type="submit" value="Yorum Yap" class="btn btn-success pull-right">
+                            </div>
+                        </div>
+            </div>
+                </form>
+            </div>
+
+
+            <div class="row">
+                <h2 class="page-header">Yorumlar({{ blog.get_blog_comment|length}})</h2>
+                <div class="col-lg-12">
+
+                    {% for comment in blog.get_blog_comment %}
+                        <div>
+
+                       <span style="font-weight:bold"> {{ comment.get_screen_name }}</span>
+                        <span class="pull-right" style="font-weight:bold;">
+
+                        <span class="glyphicon glyphicon-time"></span> {{ comment.comment_time|timesince }} Önce</span>
+
+                        </div>
+                        <p style="padding-left:10px;">
+                        {{ comment.content }}
+                        </p>
+                    {% endfor %}
+                </div>
+
+            </div>
+
+
             </div>
         </div>
 

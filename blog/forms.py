@@ -1,5 +1,5 @@
 from django import forms
-from .models import Blog
+from .models import Blog,Comment
 
 
 banned_email_list =['selamet@gmail.com','sassa@gmail.com','selo@gmail.com']
@@ -75,4 +75,12 @@ class PostSorugForm(forms.Form):
                                           choices=YAYIN_TASLAK,required=True)
 
 
+class CommentForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields=['name','surname','email','content']
 
+    def __init__(self,*args,**kwargs):
+        super(CommentForm,self).__init__()
+        for field in self.fields:
+            self.fields[field].widget.attrs = {'class':'form-control'}

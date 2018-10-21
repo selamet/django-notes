@@ -98,9 +98,16 @@ class Blog(models.Model):
 
         super(Blog,self).save(*args,**kwargs)
 
+
+    def get_blog_comment(self):
+        return self.comment.all()
+
+    def get_blog_comment_count(self):
+        return len(self.get_blog_comment()) # Yorum sayısını döndürür.
+
 class Comment(models.Model):
-    blog = models.ForeignKey(Blog,null=True,on_delete=True)
-    name =models.CharField(blank=True,null=True, verbose_name="isim",max_length=50)
+    blog = models.ForeignKey(Blog,null=True,on_delete=True, related_name='comment')
+    name = models.CharField(blank=True,null=True, verbose_name="isim",max_length=50)
     surname = models.CharField(blank=True,null=True, verbose_name="Soyisim",max_length=50)
     email = models.EmailField(null=True,blank=False,verbose_name='Email',help_text='Bu alanın girilmesi gerek')
     content = models.TextField(null=True,blank=False, verbose_name='Yorum',help_text='Fikrinizi Yazınız',
@@ -113,4 +120,9 @@ class Comment(models.Model):
 
     def __str__(self):
         return '%s%s'%(self.email,self.blog)
+
+    def get_screen_name(self):
+        if self.name:
+            return "%s %s"%(self.name,self.surname)
+        return self.email
 

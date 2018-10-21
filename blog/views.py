@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse,get_object_or_404,HttpResponseRedirect,reverse
+from django.http import HttpResponseBadRequest
 from .models import Blog
-from .forms import IletisimForm,BlogForm,PostSorugForm
+from .forms import IletisimForm,BlogForm,PostSorugForm, CommentForm
 from django.contrib import messages
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
@@ -57,10 +58,26 @@ def post_list(request):
 
 
 def post_detail(request,slug):
-
+    form =CommentForm()
     blog =get_object_or_404(Blog,slug=slug)
+   # print(blog.get_blog_comment())
 
-    return render(request,'blog/post-detail.html',context={'blog':blog})
+    return render(request,'blog/post-detail.html',context={'blog':blog,'form':form})
+
+def add_comment(request,slug):
+    if request.method == 'GET':
+        return HttpResponseBadRequest()
+    blog = get_object_or_404(Blog, slug=slug)
+    form = CommentForm(data=request.POST)
+    print(form.is_valid())
+    if form.is_valid():
+        new_comment = form.save(commit=False)
+        new_comment.blog = blog
+        new_comment.save()
+        messages.success(request, 'Tebrikler yorumunuz başarı ile oluşturuldu')
+        return HttpResponseRedirect(blog.get_absolute_url())
+
+
 
 def post_update(request,slug):
     blog = get_object_or_404(Blog,slug=slug)

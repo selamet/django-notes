@@ -32,11 +32,19 @@
         * Paginator.next_page_number() -> bir sonraki sayfa sayısını verir.
         * PPaginator.previous_page_number() -> bir önceki sayfa sayısını verir.
         
-        
 ---
         
-  * 
+  * ForeingKey Filtreleme
+  
+    * blog1 = Blog.objects.get(slug =".....")
+        * blog1.comment_set.create(email = '.....' , content = '.....')
         
+    * Comment.objects.create(blog = blog1, email='.....',content='.....')
+        * Comment.objects.filter(blog = blog1)-> blog1 elemanlarını getir
+    * Comment.objects.filter(email='.....')
+    * Comment.objects.filter(blog__slug = '.....')
+        
+      
         
         
         
