@@ -56,7 +56,6 @@ class LoginForm(forms.Form):
         if not user:
             raise forms.ValidationError('Hatalı kullanıcı adı veya parola girdiniz.')
 
-
     def clean_username(self):
         username = self.cleaned_data.get('username')
         if re.match(r"[^@]+@[^@]+\.[^@]+", username): #username email formatında mı?
