@@ -1,6 +1,6 @@
-from django.shortcuts import render,reverse,HttpResponseRedirect
-from .forms import RegisterForm
-from django.contrib.auth import authenticate ,login
+from django.shortcuts import render, reverse, HttpResponseRedirect
+from .forms import RegisterForm, LoginForm
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
 
 
@@ -20,4 +20,20 @@ def register(request):
                 messages.success(request,'<b>Tebrikler Kayıt İlemi Başarılı</>',extra_tags= 'success')
                 return HttpResponseRedirect(reverse('post-list'))
 
-    return render(request, 'auth/register.html', context={'form' : form})
+    return render(request, 'auths/register.html', context={'form' : form})
+
+def user_login(request):
+    form = LoginForm(request.POST or None)
+    print(form.is_valid())
+    if form.is_valid():
+        username = form.cleaned_data.get('username')
+        password = form.cleaned_data.get('password')
+        user = authenticate(username=username, password=password)
+        if user is not None:
+            if user.is_active:
+                login(request,user)
+                msg = "Merhabalar {} sisteme Hoş geldiniz".format(username)
+                messages.success(request, msg, extra_tags='success')
+                return HttpResponseRedirect(reverse('post-list'))
+
+    return render(request,'auths/login.html',context={'form':form})
