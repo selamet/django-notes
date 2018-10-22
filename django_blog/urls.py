@@ -23,6 +23,8 @@ from blog.views import iletisim
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('blog.urls')),
+    path('auths/', include('auths.urls')),
+
     path('iletisim/',iletisim, name ='iletisim' )
 
 ]

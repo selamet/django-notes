@@ -28,7 +28,6 @@ def iletisim(request):
 
     return render(request,'iletisim.html',context = {'form':form})
 
-
 def post_list(request):
     posts = Blog.objects.all()
     page = request.GET.get('page',1)
@@ -55,8 +54,6 @@ def post_list(request):
     context = {'posts':posts,'form':form}
     return render(request,'blog/post-list.html',context)
 
-
-
 def post_detail(request,slug):
     form =CommentForm()
     blog =get_object_or_404(Blog,slug=slug)
@@ -77,8 +74,6 @@ def add_comment(request, slug):
         new_comment.save()
         messages.success(request, 'Tebrikler yorumunuz başarı ile oluşturuldu')
         return HttpResponseRedirect(blog.get_absolute_url())
-
-
 
 def post_update(request,slug):
     blog = get_object_or_404(Blog,slug=slug)
