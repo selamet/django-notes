@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+import re
 
 
 class RegisterForm(forms.ModelForm):
@@ -54,3 +55,12 @@ class LoginForm(forms.Form):
         user = authenticate(username=username, password=password)
         if not user:
             raise forms.ValidationError('Hatalı kullanıcı adı veya parola girdiniz.')
+
+
+    def clean_username(self):
+        username = self.cleaned_data.get('username')
+        if re.match(r"[^@]+@[^@]+\.[^@]+", username): #username email formatında mı?
+            users = User.objects.filter(email__iexact=username)
+            if len(username) > 0 and len(users) == 1:
+                return users.first().username
+        return username
