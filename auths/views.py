@@ -1,10 +1,12 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect
 from .forms import RegisterForm, LoginForm
-from django.contrib.auth import authenticate, login,logout
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
+from blog.decorator import anonymous_required
 
 
+@anonymous_required
 def register(request):
     form = RegisterForm(data=request.POST or None)
     if form.is_valid():
@@ -23,9 +25,9 @@ def register(request):
     return render(request, 'auths/register.html', context={'form': form})
 
 
+@anonymous_required
 def user_login(request):
     form = LoginForm(request.POST or None)
-    print(form.is_valid())
     if form.is_valid():
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password')
@@ -39,9 +41,11 @@ def user_login(request):
 
     return render(request, 'auths/login.html', context={'form': form})
 
+
+@anonymous_required
 def user_logout(request):
     username = request.user.username
     logout(request)
     msg = " <b>Sistemden çıkış yaptınız. Güle güle {}</>".format(username)
-    messages.success(request,msg,extra_tags='success')
+    messages.success(request, msg, extra_tags='success')
     return HttpResponseRedirect(reverse('user-login'))
