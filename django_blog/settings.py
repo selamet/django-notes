@@ -136,3 +136,5 @@ CKEDITOR_CONFIGS = {
         ]
     }
 }
+
+LOGIN_URL = '/auths/login/'

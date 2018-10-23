@@ -5,6 +5,9 @@ from .forms import IletisimForm,BlogForm,PostSorugForm, CommentForm
 from django.contrib import messages
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage,PageNotAnInteger
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse_lazy
+
 
 mesajlar = []
 
@@ -28,13 +31,16 @@ def iletisim(request):
 
     return render(request,'iletisim.html',context = {'form':form})
 
+
+@login_required
 def post_list(request):
+
     posts = Blog.objects.all()
-    page = request.GET.get('page',1)
+    page = request.GET.get('page', 1)
     form = PostSorugForm(data=request.GET or None)
     if form.is_valid():
-        taslak_yayin = form.cleaned_data.get('taslak_yayin',None)
-        search = form.cleaned_data.get('search',None)
+        taslak_yayin = form.cleaned_data.get('taslak_yayin', None)
+        search = form.cleaned_data.get('search', None)
         if search:
             posts = posts.filter(
                 Q(content__icontains=search) | Q(title__icontains=search) | Q(kategoriler__isim__icontains=search)).distinct()
@@ -54,6 +60,8 @@ def post_list(request):
     context = {'posts':posts,'form':form}
     return render(request,'blog/post-list.html',context)
 
+
+@login_required(login_url=reverse_lazy('user-login'))
 def post_detail(request,slug):
     form =CommentForm()
     blog =get_object_or_404(Blog,slug=slug)
@@ -61,6 +69,8 @@ def post_detail(request,slug):
 
     return render(request,'blog/post-detail.html',context={'blog':blog,'form':form})
 
+
+@login_required(login_url=reverse_lazy('user-login'))
 def add_comment(request, slug):
 
     if request.method == 'GET':
@@ -75,6 +85,8 @@ def add_comment(request, slug):
         messages.success(request, 'Tebrikler yorumunuz başarı ile oluşturuldu')
         return HttpResponseRedirect(blog.get_absolute_url())
 
+
+@login_required(login_url=reverse_lazy('user-login'))
 def post_update(request,slug):
     blog = get_object_or_404(Blog,slug=slug)
     form = BlogForm(instance=blog, data = request.POST or None, files=request.FILES or None) # bloğun içerisindeki değerleri çeker
@@ -88,6 +100,8 @@ def post_update(request,slug):
 
     return render(request,'blog/post-update.html',context)
 
+
+@login_required(login_url=reverse_lazy('user-login'))
 def post_delete(request,slug):
     blog = get_object_or_404(Blog,slug=slug)
     blog.delete()
@@ -96,6 +110,8 @@ def post_delete(request,slug):
 
     return HttpResponseRedirect(reverse('post-list'))
 
+
+@login_required(login_url=reverse_lazy('user-login'))
 def post_create(request):
     form =BlogForm()
     if request.method == 'POST':
