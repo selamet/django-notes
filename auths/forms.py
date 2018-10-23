@@ -2,17 +2,20 @@ from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
 import re
+from .models import UserProfile
 
 
 class RegisterForm(forms.ModelForm):
     password = forms.CharField(required=True, label='Password', min_length=5,
-                               widget=forms.PasswordInput(attrs={'class':'form-control'}))
+                               widget=forms.PasswordInput(attrs={'class': 'form-control'}))
     password_confirm = forms.CharField(required=True, label='Password Confirm', min_length=5,
                                        widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
+    sex = forms.ChoiceField(required=True, choices=UserProfile.SEX)
+
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password', 'password_confirm']
+        fields = ['first_name', 'last_name', 'sex', 'username', 'email', 'password', 'password_confirm']
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)
@@ -42,12 +45,12 @@ class RegisterForm(forms.ModelForm):
             raise forms.ValidationError('Böyle bir kullanıcıadı mevcut ')
         return username
 
+
 class LoginForm(forms.Form):
     username = forms.CharField(required=True, max_length=50, label='Username',
-                               widget=forms.TextInput(attrs={'class':'form-control'}))
-    password = forms.CharField(required=True, max_length=50,label='Password',
+                               widget=forms.TextInput(attrs={'class': 'form-control'}))
+    password = forms.CharField(required=True, max_length=50, label='Password',
                                widget=forms.PasswordInput(attrs={'class': 'form-control'}))
-
 
     def clean(self):
         username = self.cleaned_data.get('username')
@@ -58,7 +61,7 @@ class LoginForm(forms.Form):
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
-        if re.match(r"[^@]+@[^@]+\.[^@]+", username): #username email formatında mı?
+        if re.match(r"[^@]+@[^@]+\.[^@]+", username):  # username email formatında mı?
             users = User.objects.filter(email__iexact=username)
             if len(username) > 0 and len(users) == 1:
                 return users.first().username

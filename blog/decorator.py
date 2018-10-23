@@ -15,6 +15,6 @@ def anonymous_required(func):
     def wrap(request, *args, **kwargs):
         if request.user.is_authenticated:
             return HttpResponseRedirect(reverse('post-list'))
-        func(request, *args, **kwargs)
+        return func(request, *args, **kwargs)
 
     return wrap

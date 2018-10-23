@@ -30,7 +30,7 @@
         * Paginator.hast_previous() -> bir önceki sayfanın var olup olmadığını kontrol eder.
         * Paginator.has_other_pages() -> başka sayfalar var mı diye kontrol eder.
         * Paginator.next_page_number() -> bir sonraki sayfa sayısını verir.
-        * PPaginator.previous_page_number() -> bir önceki sayfa sayısını verir.
+        * Paginator.previous_page_number() -> bir önceki sayfa sayısını verir.
         
 ---
         
@@ -44,7 +44,19 @@
     * Comment.objects.filter(email='.....')
     * Comment.objects.filter(blog__slug = '.....')
         
-      
+---
+  * One To One Field Orm
+     
+       * user = User.objects.get(username ='.....')
+       * profil = UserProfile.objects.create(user =user,sex ='.....')
+           * user.userprofile
+           * user.get_full_name()
+           * user.userprofile.get_screen_name()
+           * user.userprofile.delete()
+        
+       
+  
+  
         
         
         

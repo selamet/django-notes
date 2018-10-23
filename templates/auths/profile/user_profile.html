@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+    {{ user.profile.get_screen_name }}
+{% endblock %}
+
+{% block icerik %}
+
+{{ user.userprofile.get_screen_name }}
+{% endblock %}
