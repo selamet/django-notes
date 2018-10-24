@@ -9,7 +9,7 @@
 
 {% block icerik %}
     <div class="row">
-        <div class="col-lg-5">
+        <div class="col-lg-5 pull-center">
             <form action="{% url 'register' %} " method="post">
                 {% csrf_token %}
                 {% for field in form %}

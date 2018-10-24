@@ -1,11 +1,35 @@
 {% extends 'base.html' %}
 
-
-{% block title %}
-    {{ user.profile.get_screen_name }}
-{% endblock %}
+{% block title %} {{ user.profile.get_screen_name }}{% endblock %}
 
 {% block icerik %}
+    <div class="row">
+        <div class="col-lg-8 user-profile pull-center">
+            <div class="text-center">
+                <img class="img-circle user-profile-img" src="{{ user.userprofile.get_profile_photo }}">
+            </div>
+            <div class="text-center">
+                <br/>
+                {% if user.userprofile.user_full_name %}
+                    <span class="text"><b>{{ user.userprofile.user_full_name|upper }}</b></span>
+                    <br/>
+                {% endif %}
+                <span class="text">
+                    <b>@{{ user.username }}</b>
+                </span>
+                <span class="text">
+                    <br>
+                    <b>{{ user.userprofile.get_sex_display }}</b>
+                </span>
+            </div>
+            <ul class=" nav nav-pills">
+                <li role="presentation" class=""><a href="#">Gˆnderiler</a></li>
+                <li role="presentation"><a href="#">Hakk˝mda</a></li>
+                <li role="presentation"><a href="#">Ayarlar</a></li>
+            </ul>
+            <div>
 
-{{ user.userprofile.get_screen_name }}
+            </div>
+        </div>
+    </div>
 {% endblock %}

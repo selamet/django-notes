@@ -15,7 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from django.conf.urls import url,include
+from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
 from blog.views import iletisim
@@ -25,9 +25,9 @@ urlpatterns = [
     path('posts/', include('blog.urls')),
     path('auths/', include('auths.urls')),
 
-    path('iletisim/',iletisim, name ='iletisim' )
+    path('iletisim/', iletisim, name='iletisim')
 
 ]
 
-urlpatterns += static(settings.STATIC_URL, document_root = settings.STATIC_ROOT)
-urlpatterns += static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
