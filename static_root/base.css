@@ -1,5 +1,13 @@
-.pull-center {
-    float: none;
+.pull-center{
+    float:none;
     margin: 0 auto;
+}
 
+.user-profile{
+    width: 150px;
+    height: 150px;
+}
+
+.user-profile{
+    margin-top:25px;
 }

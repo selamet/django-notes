@@ -66,3 +66,29 @@ class LoginForm(forms.Form):
             if len(username) > 0 and len(users) == 1:
                 return users.first().username
         return username
+
+
+class UserProfileUpdateForm(forms.ModelForm):
+    sex = forms.ChoiceField(required=True, choices=UserProfile.SEX)
+    profile_photo = forms.ImageField(required=False)
+    bio = forms.CharField(widget=forms.Textarea, required=False)
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username', 'email', 'sex', 'profile_photo', 'bio']
+
+    def __init__(self, *args, **kwargs):
+        super(UserProfileUpdateForm, self).__init__(*args, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs = {'class': 'form-control'}
+        self.fields['bio'].widget.attrs['rows'] = 10
+
+    def clean_email(self):
+        email = self.cleaned_data.get('email', None)
+        # eğer email adresi girilmemişse
+        if not email:
+            raise forms.ValidationError('Lütfen email bilgisi giriniz')
+
+        if User.objects.filter(email=email).exclude(username=self.instance.username).exists():
+            raise forms.ValidationError('Bu email adresi sistemde mevcut')
+        return email

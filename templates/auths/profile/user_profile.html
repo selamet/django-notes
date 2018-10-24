@@ -4,9 +4,9 @@
 
 {% block icerik %}
     <div class="row">
-        <div class="col-lg-8 user-profile pull-center">
+        <div class="col-lg-8 pull-center">
             <div class="text-center">
-                <img class="img-circle user-profile-img" src="{{ user.userprofile.get_profile_photo }}">
+                <img class="img-circle user-profile" src="{{ user.userprofile.get_profile_photo }}">
             </div>
             <div class="text-center">
                 <br/>
@@ -23,11 +23,16 @@
                 </span>
             </div>
             <ul class=" nav nav-pills">
-                <li role="presentation" class=""><a href="#">Gˆnderiler</a></li>
-                <li role="presentation"><a href="#">Hakk˝mda</a></li>
-                <li role="presentation"><a href="#">Ayarlar</a></li>
+                <li role="presentation" class=""><a href="#">Gönderiler</a></li>
+                <li role="presentation"><a href="#">Hakkımda</a></li>
+                <li role="presentation"><a href="{% url 'user-settings' %}">Ayarlar</a></li>
             </ul>
             <div>
+                <div>
+                    {% block profil_icerik %}
+
+                    {% endblock %}
+                </div>
 
             </div>
         </div>

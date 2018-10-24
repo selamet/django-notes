@@ -1,5 +1,5 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect, get_object_or_404
-from .forms import RegisterForm, LoginForm
+from .forms import RegisterForm, LoginForm, UserProfileUpdateForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from blog.decorator import anonymous_required
@@ -57,3 +57,27 @@ def user_logout(request):
 def user_profile(request, username):
     user = get_object_or_404(User, username=username)
     return render(request, 'auths/profile/user_profile.html', context={'user': user})
+
+
+def user_settings(request):
+    sex = request.user.userprofile.sex
+    bio = request.user.userprofile.bio
+    profile_photo = request.user.userprofile.profile_photo
+    initial = {'sex': sex, 'bio': bio, 'profile_photo': profile_photo}
+    form = UserProfileUpdateForm(initial=initial, instance=request.user, data=request.POST or None,
+                                 files=request.FILES or None)
+    if request.method == 'POST':
+        if form.is_valid():
+            user = form.save(commit=True)
+            bio = form.cleaned_data.get('bio', None)
+            sex = form.cleaned_data.get('sex', None)
+            profile_photo = form.cleaned_data.get('profile_photo', None)
+            user.userprofile.sex = sex
+            user.userprofile.profile_photo = profile_photo
+            user.userprofile.bio = bio
+            user.userprofile.save()
+            messages.success(request, 'Tebrikler kullanıcı bilgileriniz başarı ile güncellendi', extra_tags='success')
+            return HttpResponseRedirect(reverse('user-profile', kwargs={'username': user.username}))
+    else:
+        messages.warning(request, 'Lütfen form alanlarını doğru giriniz', extra_tags='danger')
+    return render(request, 'auths/profile/settings.html', context={'form': form})
