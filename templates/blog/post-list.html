@@ -44,6 +44,8 @@
                         <img class="img-responsive" src="{{ post.get_image }}" alt="">
 
                     {% endif %}
+                    <p><span class="glyphicon glyphicon-tree-deciduous"></span> <b>
+                            Yazar: {{ post.user.userprofile.get_screen_name }}</b></p>
 
                     <p style="margin-top: 20px;">{{ post.content|linebreaksbr|truncatechars:250 }}</p>
 
@@ -64,6 +66,7 @@
                                 {% if posts.has_previous %}
                                     <li><a href="?page=
 
+
                                             {{ posts.previous_page_number }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&laquo;</a>
                                     </li>
                                 {% else %}
@@ -77,6 +80,7 @@
                                     {% else %}
                                         <li><a href="?page=
 
+
                                                 {{ i }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ i }}</a>
                                         </li>
                                     {% endif %}
@@ -84,6 +88,7 @@
 
                                 {% if posts.has_next %}
                                     <li><a href="?page=
+
 
                                             {{ posts.next_page_number }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&raquo;</a>
                                     </li>

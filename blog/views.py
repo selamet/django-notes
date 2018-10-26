@@ -113,7 +113,9 @@ def post_create(request):
         # print(request.POST)
         form = BlogForm(data=request.POST, files=request.FILES)
         if form.is_valid():
-            blog = form.save()
+            blog = form.save(commit=False)
+            blog.user = request.user
+            blog.save()
             msg = 'Tebrikler <strong> %s </strong> isimli gönderiniz başarı ile oluşturuldu.' % (blog.title)
             messages.success(request, msg, extra_tags='success')
 

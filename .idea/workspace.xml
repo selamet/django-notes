@@ -2,8 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a27f384d-a5fd-4f0b-89d3-e0e76ebe8df8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/auths/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/auths/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auths/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/auths/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/post-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post-detail.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/blog/post-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post-list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -47,23 +50,23 @@
           <entry key="LICENSE" value="1" />
           <entry key="css" value="5" />
           <entry key="gitignore" value="1" />
-          <entry key="html" value="74" />
+          <entry key="html" value="76" />
           <entry key="jpg" value="4" />
           <entry key="js" value="2" />
           <entry key="md" value="4" />
-          <entry key="py" value="86" />
+          <entry key="py" value="88" />
           <entry key="rnc" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="5" />
-          <entry key="HTML" value="74" />
+          <entry key="HTML" value="76" />
           <entry key="Image" value="4" />
           <entry key="JavaScript" value="2" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="86" />
+          <entry key="Python" value="88" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -72,17 +75,17 @@
           <entry key="Django Console" value="261" />
           <entry key="Python Console" value="63" />
           <entry key="css" value="191" />
-          <entry key="html" value="9854" />
+          <entry key="html" value="9952" />
           <entry key="md" value="2488" />
-          <entry key="py" value="19112" />
+          <entry key="py" value="19258" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="191" />
-          <entry key="HTML" value="9854" />
+          <entry key="HTML" value="9952" />
           <entry key="Markdown" value="2479" />
-          <entry key="Python" value="19445" />
+          <entry key="Python" value="19591" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -91,61 +94,52 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="383">
+              <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+                <element signature="e#3303#4161#0" />
+                <marker date="1540595646425" expanded="false" signature="268:444" ph="..." />
+                <marker date="1540595646425" expanded="false" signature="473:658" ph="..." />
+                <marker date="1540595646425" expanded="true" signature="779:784" ph="..." />
+                <marker date="1540595646425" expanded="true" signature="1982:2049" ph="..." />
+                <marker date="1540595646425" expanded="true" signature="2081:2362" ph="..." />
+                <marker date="1540595646425" expanded="true" signature="2481:2608" ph="..." />
+                <marker date="1540595646425" expanded="true" signature="2893:2898" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/auths/views.py">
+        <entry file="file://$PROJECT_DIR$/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="131">
-              <caret line="88" column="34" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+            <state relative-caret-position="284">
+              <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
               <folding>
-                <element signature="e#0#85#0" expanded="true" />
-                <element signature="e#420#1217#0" />
-                <element signature="e#1269#1883#0" />
-                <element signature="e#1916#2155#0" />
-                <element signature="e#2199#2334#0" />
-                <element signature="e#2369#3596#0" />
-                <marker date="1540594276841" expanded="true" signature="1372:1992" ph="..." />
-                <marker date="1540594276841" expanded="true" signature="4417:4508" ph="..." />
-                <marker date="1540594276841" expanded="true" signature="4542:4597" ph="..." />
+                <element signature="e#0#99#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auths/forms.py">
+        <entry file="file://$PROJECT_DIR$/templates/blog/post-detail.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="118" column="33" lean-forward="true" selection-start-line="118" selection-start-column="33" selection-end-line="118" selection-end-column="33" />
-              <folding>
-                <element signature="e#0#24#0" expanded="true" />
-                <element signature="e#1922#2915#0" />
-                <element signature="e#2968#3962#0" />
-                <marker date="1540594252489" expanded="true" signature="685:691" ph="..." />
-                <marker date="1540594252489" expanded="true" signature="3208:3213" ph="..." />
-                <marker date="1540594252489" expanded="true" signature="4080:4085" ph="..." />
-                <marker date="1540594252489" expanded="true" signature="5466:5467" ph="..." />
-              </folding>
+            <state relative-caret-position="304">
+              <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/auths/profile/password_change.html">
+        <entry file="file://$PROJECT_DIR$/templates/blog/post-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" selection-start-line="25" selection-end-line="25" />
-              <folding>
-                <element signature="e#140#164#0#HTML" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/auths/profile/user_profile.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="75">
-              <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="42" />
+            <state relative-caret-position="271">
+              <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
             </state>
           </provider>
         </entry>
@@ -164,6 +158,7 @@
     <findStrings>
       <find>search</find>
       <find>post-upda</find>
+      <find>yazar</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -177,14 +172,12 @@
         <option value="$PROJECT_DIR$/blog/models 2.py" />
         <option value="$PROJECT_DIR$/templates/blog/post-update.html" />
         <option value="$PROJECT_DIR$/blog/admin.py" />
-        <option value="$PROJECT_DIR$/blog/models.py" />
         <option value="$PROJECT_DIR$/blog/urls.py" />
         <option value="$PROJECT_DIR$/blog/forms.py" />
         <option value="$PROJECT_DIR$/auth/forms.py" />
         <option value="$PROJECT_DIR$/auth/views.py" />
         <option value="$PROJECT_DIR$/auth/urls.py" />
         <option value="$PROJECT_DIR$/templates/blog/post-create.html" />
-        <option value="$PROJECT_DIR$/templates/blog/post-detail.html" />
         <option value="$PROJECT_DIR$/templates/iletisim.html" />
         <option value="$PROJECT_DIR$/templates/auth/register.html" />
         <option value="$PROJECT_DIR$/templates/auth/login.html" />
@@ -192,14 +185,12 @@
         <option value="$PROJECT_DIR$/auths/decorator.py" />
         <option value="$PROJECT_DIR$/auths/admin.py" />
         <option value="$PROJECT_DIR$/README.md" />
-        <option value="$PROJECT_DIR$/blog/views.py" />
         <option value="$PROJECT_DIR$/blog/decorator.py" />
         <option value="$PROJECT_DIR$/django_blog/urls.py" />
         <option value="$PROJECT_DIR$/django_blog/settings.py" />
         <option value="$PROJECT_DIR$/static/bootstrap/js/bootstrap.min.js" />
         <option value="$PROJECT_DIR$/static/bootstrap/css/bootstrap-theme.min.css" />
         <option value="$PROJECT_DIR$/static/bootstrap/js/jquery.js" />
-        <option value="$PROJECT_DIR$/templates/blog/post-list.html" />
         <option value="$PROJECT_DIR$/auths/models.py" />
         <option value="$PROJECT_DIR$/static/base.css" />
         <option value="$PROJECT_DIR$/templates/auths/profile/settings.html" />
@@ -213,6 +204,10 @@
         <option value="$PROJECT_DIR$/templates/auths/profile/password_change.html" />
         <option value="$PROJECT_DIR$/auths/forms.py" />
         <option value="$PROJECT_DIR$/auths/views.py" />
+        <option value="$PROJECT_DIR$/blog/models.py" />
+        <option value="$PROJECT_DIR$/templates/blog/post-list.html" />
+        <option value="$PROJECT_DIR$/templates/blog/post-detail.html" />
+        <option value="$PROJECT_DIR$/blog/views.py" />
       </list>
     </option>
   </component>
@@ -266,14 +261,7 @@
             </path>
             <path>
               <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="auths" type="462c0819:PsiDirectoryNode" />
+              <item name="Scratches and Consoles" type="1a2a3e82:ScratchProjectViewPane$MyProjectNode" />
             </path>
           </expand>
           <select />
@@ -285,7 +273,7 @@
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.django.DjangoModulesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -363,7 +351,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48757172" visible="true" weight="0.15024233" />
       <window_info id="Structure" order="1" sideWeight="0.5124283" side_tool="true" weight="0.15024233" />
@@ -470,13 +457,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/post-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blog/post-update.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
@@ -502,6 +482,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
           <caret line="85" column="70" lean-forward="true" selection-start-line="83" selection-start-column="8" selection-end-line="85" selection-end-column="70" />
+          <folding>
+            <element signature="e#0#24#0" expanded="true" />
+            <marker date="1540146751704" expanded="true" signature="169:174" ph="..." />
+            <marker date="1540146751704" expanded="true" signature="3125:3126" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -588,29 +573,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/post-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/static/img/default.jpg">
       <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1308">
-          <caret line="107" column="28" selection-start-line="107" selection-start-column="28" selection-end-line="107" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="655">
-          <caret line="108" column="24" selection-start-line="108" selection-end-line="109" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/static/base.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -650,13 +614,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/auths/profile/user_profile.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/auths/profile/settings.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -692,6 +649,24 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/auths/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="206">
+          <caret line="93" column="24" selection-start-line="93" selection-start-column="24" selection-end-line="93" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#85#0" expanded="true" />
+            <element signature="e#420#1217#0" />
+            <element signature="e#1269#1883#0" />
+            <element signature="e#1916#2155#0" />
+            <element signature="e#2199#2334#0" />
+            <element signature="e#2369#3596#0" />
+            <marker date="1540594276841" expanded="true" signature="1372:1992" ph="..." />
+            <marker date="1540594276841" expanded="true" signature="4417:4508" ph="..." />
+            <marker date="1540594276841" expanded="true" signature="4542:4597" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/auths/forms.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -718,20 +693,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auths/views.py">
+    <entry file="file://$PROJECT_DIR$/templates/auths/profile/user_profile.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="131">
-          <caret line="88" column="34" selection-start-line="88" selection-start-column="34" selection-end-line="88" selection-end-column="34" />
+        <state relative-caret-position="75">
+          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="6" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="383">
+          <caret line="45" column="22" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
           <folding>
-            <element signature="e#0#85#0" expanded="true" />
-            <element signature="e#420#1217#0" />
-            <element signature="e#1269#1883#0" />
-            <element signature="e#1916#2155#0" />
-            <element signature="e#2199#2334#0" />
-            <element signature="e#2369#3596#0" />
-            <marker date="1540594276841" expanded="true" signature="1372:1992" ph="..." />
-            <marker date="1540594276841" expanded="true" signature="4417:4508" ph="..." />
-            <marker date="1540594276841" expanded="true" signature="4542:4597" ph="..." />
+            <element signature="e#0#28#0" expanded="true" />
+            <element signature="e#3303#4161#0" />
+            <marker date="1540595646425" expanded="false" signature="268:444" ph="..." />
+            <marker date="1540595646425" expanded="false" signature="473:658" ph="..." />
+            <marker date="1540595646425" expanded="true" signature="779:784" ph="..." />
+            <marker date="1540595646425" expanded="true" signature="1982:2049" ph="..." />
+            <marker date="1540595646425" expanded="true" signature="2081:2362" ph="..." />
+            <marker date="1540595646425" expanded="true" signature="2481:2608" ph="..." />
+            <marker date="1540595646425" expanded="true" signature="2893:2898" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blog/post-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="271">
+          <caret line="47" column="35" selection-start-line="47" selection-start-column="35" selection-end-line="47" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blog/post-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="41" column="22" selection-start-line="41" selection-start-column="22" selection-end-line="41" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="41" column="18" selection-start-line="41" selection-start-column="18" selection-end-line="41" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#99#0" expanded="true" />
           </folding>
         </state>
       </provider>
