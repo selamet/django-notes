@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+from django.contrib.auth.forms import PasswordChangeForm
+
 import re
 from .models import UserProfile
 
@@ -105,7 +107,7 @@ class UserPasswordChangeForm(forms.Form):
 
     def __init__(self, user, *args, **kwargs):
         self.user = user
-        super(UserPasswordChangeForm, self).__init__(*args, **kwargs)
+        super(UserPasswordChangeForm, self).__init__(*args, user, **kwargs)
 
     def clean(self):
         new_password = self.cleaned_data.get('new_password')
@@ -119,3 +121,11 @@ class UserPasswordChangeForm(forms.Form):
         if not self.user.check_password(old_password):
             raise forms.ValidationError('Lütfen parolanızı giriniz')
         return old_password
+
+
+class UserPasswordChangeForm2(PasswordChangeForm):
+    def __init__(self, user, *args, **kwargs):
+        self.user = user
+        super(UserPasswordChangeForm2, self).__init__(*args, user, **kwargs)
+        for field in self.fields:
+            self.fields[field].widget.attrs = {'class': 'form-control'}

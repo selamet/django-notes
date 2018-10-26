@@ -1,12 +1,12 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect, get_object_or_404
-from .forms import RegisterForm, LoginForm, UserProfileUpdateForm, UserPasswordChangeForm
-from django.contrib.auth import authenticate, login, logout
-from django.contrib import messages
-from blog.decorator import anonymous_required
-
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login, logout, update_session_auth_hash
+from django.contrib import messages
+from django.contrib.auth.forms import PasswordChangeForm
+
+from blog.decorator import anonymous_required
 from .models import UserProfile
-from django.contrib.auth import update_session_auth_hash
+from .forms import RegisterForm, LoginForm, UserProfileUpdateForm, UserPasswordChangeForm2
 
 
 @anonymous_required
@@ -85,12 +85,15 @@ def user_settings(request):
 
 
 def user_password_change(request):
-    form = UserPasswordChangeForm(user=request.user, data=request.POST or None)
+    #form = UserPasswordChangeForm(user=request.user, data=request.POST or None)
+    form = UserPasswordChangeForm2(user=request.user, data=request.POST or None)
     if form.is_valid():
-        new_password = form.cleaned_data.get('new_password')
-        request.user.set_password(new_password)
-        request.user.save()
-        update_session_auth_hash(request, request.user)
+        #new_password = form.cleaned_data.get('new_password')
+        #request.user.set_password(new_password)
+        #request.user.save()
+        #update_session_auth_hash(request, request.user)
+        user = form.save(commit=True)
+        update_session_auth_hash(request,user)
         messages.success(request, 'Tebrikler parolanın başırı ile güncelendi', extra_tags='success')
         return HttpResponseRedirect(reverse('user-profile', kwargs={'username': request.user.username}))
 
