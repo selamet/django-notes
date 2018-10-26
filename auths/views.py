@@ -81,3 +81,8 @@ def user_settings(request):
     else:
         messages.warning(request, 'Lütfen form alanlarını doğru giriniz', extra_tags='danger')
     return render(request, 'auths/profile/settings.html', context={'form': form})
+
+
+def user_about(request, username):
+    user = get_object_or_404(User, username=username)
+    return render(request, 'auths/profile/about_me.html', context={'user': user})

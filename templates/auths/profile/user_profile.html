@@ -24,7 +24,7 @@
             </div>
             <ul class=" nav nav-pills">
                 <li role="presentation" class=""><a href="#">Gönderiler</a></li>
-                <li role="presentation"><a href="#">Hakkımda</a></li>
+                <li role="presentation"><a href="{% url 'user-about' user.username %}">Hakkımda</a></li>
                 <li role="presentation"><a href="{% url 'user-settings' %}">Ayarlar</a></li>
             </ul>
             <div>
