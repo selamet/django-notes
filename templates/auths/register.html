@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends 'base_is_anonymous.html' %}
 
 {% block title %}
 
@@ -10,6 +10,9 @@
 {% block icerik %}
     <div class="row">
         <div class="col-lg-5 pull-center">
+            <h2 class="page-header"> </h2>
+
+
             <form action="{% url 'register' %} " method="post">
                 {% csrf_token %}
                 {% for field in form %}
@@ -34,6 +37,6 @@
                 <input type="submit" class="btn btn-sm btn-success pull-right" value="Kayıt Ol">
                 <span><b>Giriş Yapmak için <a href="{% url 'user-login' %}">  Tıklayınız </a></b></span>
             </form>
-        </div>
+        </h2>
     </div>
 {% endblock %}

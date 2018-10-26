@@ -50,8 +50,8 @@
                        aria-expanded="false">{{ request.user }}<span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="{% url 'user-profile' user.username %}"> <span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                        <li><a href="#"> <span class="glyphicon glyphicon-cog"></span> Settings </a></li>
-                        <li><a href="#">Password Change</a></li>
+                        <li><a href="{% url 'user-settings' %}"> <span class="glyphicon glyphicon-cog"></span> Settings </a></li>
+                        <li><a href="{% url 'user-password-change' %}"> <span class="glyphicon glyphicon-lock"></span> Password Change</a></li>
                         <li role="separator" class="divider"></li>
                         <li> <a href="{% url 'user-logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
                     </ul>

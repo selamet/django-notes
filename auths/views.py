@@ -1,11 +1,12 @@
 from django.shortcuts import render, reverse, HttpResponseRedirect, get_object_or_404
-from .forms import RegisterForm, LoginForm, UserProfileUpdateForm
+from .forms import RegisterForm, LoginForm, UserProfileUpdateForm, UserPasswordChangeForm
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from blog.decorator import anonymous_required
 
 from django.contrib.auth.models import User
 from .models import UserProfile
+from django.contrib.auth import update_session_auth_hash
 
 
 @anonymous_required
@@ -81,6 +82,19 @@ def user_settings(request):
     else:
         messages.warning(request, 'Lütfen form alanlarını doğru giriniz', extra_tags='danger')
     return render(request, 'auths/profile/settings.html', context={'form': form})
+
+
+def user_password_change(request):
+    form = UserPasswordChangeForm(user=request.user, data=request.POST or None)
+    if form.is_valid():
+        new_password = form.cleaned_data.get('new_password')
+        request.user.set_password(new_password)
+        request.user.save()
+        update_session_auth_hash(request, request.user)
+        messages.success(request, 'Tebrikler parolanın başırı ile güncelendi', extra_tags='success')
+        return HttpResponseRedirect(reverse('user-profile', kwargs={'username': request.user.username}))
+
+    return render(request, 'auths/profile/password_change.html', context={'form': form})
 
 
 def user_about(request, username):

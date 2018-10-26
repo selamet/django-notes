@@ -92,3 +92,30 @@ class UserProfileUpdateForm(forms.ModelForm):
         if User.objects.filter(email=email).exclude(username=self.instance.username).exists():
             raise forms.ValidationError('Bu email adresi sistemde mevcut')
         return email
+
+
+class UserPasswordChangeForm(forms.Form):
+    user = None
+    old_password = forms.CharField(min_length=4, required=True, label='Mevcut Parolanız',
+                                   widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password = forms.CharField(min_length=4, required=True, label='Yeni Parolanız',
+                                   widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+    new_password_confirm = forms.CharField(min_length=4, required=True, label='Yeni Parola Doğrulama',
+                                           widget=forms.PasswordInput(attrs={'class': 'form-control'}))
+
+    def __init__(self, user, *args, **kwargs):
+        self.user = user
+        super(UserPasswordChangeForm, self).__init__(*args, **kwargs)
+
+    def clean(self):
+        new_password = self.cleaned_data.get('new_password')
+        new_password_confirm = self.cleaned_data.get('new_password_confirm')
+        if new_password != new_password_confirm:
+            self.add_error('new_password', 'Yeni Parolalar Eşleşmedi')
+            self.add_error('new_password_confirm', 'Yeni Parolalar Eşleşmedi')
+
+    def clean_old_password(self):
+        old_password = self.cleaned_data.get('old_password')
+        if not self.user.check_password(old_password):
+            raise forms.ValidationError('Lütfen parolanızı giriniz')
+        return old_password
