@@ -47,13 +47,18 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">{{ request.user }}<span class="caret"></span></a>
+                       aria-expanded="false">{{ request.user.userprofile.get_screen_name }}<span
+                            class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="{% url 'user-profile' user.username %}"> <span class="glyphicon glyphicon-user"></span> Profile</a></li>
-                        <li><a href="{% url 'user-settings' %}"> <span class="glyphicon glyphicon-cog"></span> Settings </a></li>
-                        <li><a href="{% url 'user-password-change' %}"> <span class="glyphicon glyphicon-lock"></span> Password Change</a></li>
+                        <li><a href="{% url 'user-profile' request.user.username %}"> <span
+                                class="glyphicon glyphicon-user"></span> Profile</a></li>
+                        <li><a href="{% url 'user-settings' %}"> <span class="glyphicon glyphicon-cog"></span> Settings
+                        </a></li>
+                        <li><a href="{% url 'user-password-change' %}"> <span class="glyphicon glyphicon-lock"></span>
+                            Password Change</a></li>
                         <li role="separator" class="divider"></li>
-                        <li> <a href="{% url 'user-logout' %}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+                        <li><a href="{% url 'user-logout' %}"><span class="glyphicon glyphicon-log-out"></span>
+                            Logout</a></li>
                     </ul>
                 </li>
             </ul>

@@ -22,16 +22,15 @@
                     <b>{{ user.userprofile.get_sex_display }}</b>
                 </span>
             </div>
-            <ul class=" nav nav-pills">
-                <li role="presentation" class="active"><a href="#">Gönderiler</a></li>
-                <li role="presentation"><a href="{% url 'user-about' user.username %}">Hakkımda</a></li>
-                <li role="presentation"><a href="{% url 'user-settings' %}">Ayarlar</a></li>
-                <li role="presentation"><a href="{% url 'user-password-change' %}">Password Change</a></li>
-            </ul>
+            {% if request.user == user %}
+                {% include 'auths/profile/include/owner_navbar.html' %}
+
+            {% else %}
+                {% include 'auths/profile/include/visitor_navbar.html' %}
+            {% endif %}
             <div>
                 <div>
                     {% block profil_icerik %}
-
                     {% endblock %}
                 </div>
 
