@@ -1,5 +1,5 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, HttpResponseRedirect, reverse
-from django.http import HttpResponseBadRequest
+from django.http import HttpResponseBadRequest, HttpResponseForbidden
 from .models import Blog
 from .forms import IletisimForm, BlogForm, PostSorugForm, CommentForm
 from django.contrib import messages
@@ -84,6 +84,8 @@ def add_comment(request, slug):
 @login_required(login_url=reverse_lazy('user-login'))
 def post_update(request, slug):
     blog = get_object_or_404(Blog, slug=slug)
+    if request.user !=blog.user:
+        return HttpResponseForbidden
     form = BlogForm(instance=blog, data=request.POST or None,
                     files=request.FILES or None)  # bloğun içerisindeki değerleri çeker
     if form.is_valid():
@@ -99,6 +101,8 @@ def post_update(request, slug):
 @login_required(login_url=reverse_lazy('user-login'))
 def post_delete(request, slug):
     blog = get_object_or_404(Blog, slug=slug)
+    if request.user !=blog.user:
+        return HttpResponseForbidden
     blog.delete()
     msg = 'Tebrikler %s isimli gönderiniz başarı ile silindi.' % (blog.title)
     messages.success(request, msg, extra_tags='danger')
