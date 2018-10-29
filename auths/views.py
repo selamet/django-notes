@@ -57,7 +57,7 @@ def user_logout(request):
 
 def user_profile(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'auths/profile/user_profile.html', context={'user': user})
+    return render(request, 'auths/profile/user_profile.html', context={'user': user, 'page': 'profile'})
 
 
 def user_settings(request):
@@ -81,25 +81,25 @@ def user_settings(request):
             return HttpResponseRedirect(reverse('user-profile', kwargs={'username': user.username}))
     else:
         messages.warning(request, 'Lütfen form alanlarını doğru giriniz', extra_tags='danger')
-    return render(request, 'auths/profile/settings.html', context={'form': form})
+    return render(request, 'auths/profile/settings.html', context={'form': form, 'page': 'settings'})
 
 
 def user_password_change(request):
-    #form = UserPasswordChangeForm(user=request.user, data=request.POST or None)
+    # form = UserPasswordChangeForm(user=request.user, data=request.POST or None)
     form = UserPasswordChangeForm2(user=request.user, data=request.POST or None)
     if form.is_valid():
-        #new_password = form.cleaned_data.get('new_password')
-        #request.user.set_password(new_password)
-        #request.user.save()
-        #update_session_auth_hash(request, request.user)
+        # new_password = form.cleaned_data.get('new_password')
+        # request.user.set_password(new_password)
+        # request.user.save()
+        # update_session_auth_hash(request, request.user)
         user = form.save(commit=True)
-        update_session_auth_hash(request,user)
+        update_session_auth_hash(request, user)
         messages.success(request, 'Tebrikler parolanın başırı ile güncelendi', extra_tags='success')
         return HttpResponseRedirect(reverse('user-profile', kwargs={'username': request.user.username}))
 
-    return render(request, 'auths/profile/password_change.html', context={'form': form})
+    return render(request, 'auths/profile/password_change.html', context={'form': form, 'page': 'password-change'})
 
 
 def user_about(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'auths/profile/about_me.html', context={'user': user})
+    return render(request, 'auths/profile/about_me.html', context={'user': user, 'page': 'about'})
