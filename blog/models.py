@@ -95,21 +95,18 @@ class Blog(models.Model):
 
 
 class Comment(models.Model):
+    user = models.ForeignKey(User, null=True, default=1, related_name='comment', on_delete=True)
     blog = models.ForeignKey(Blog, null=True, on_delete=True, related_name='comment')
-    name = models.CharField(blank=True, null=True, verbose_name="isim", max_length=50)
-    surname = models.CharField(blank=True, null=True, verbose_name="Soyisim", max_length=50)
-    email = models.EmailField(null=True, blank=False, verbose_name='Email', help_text='Bu alanın girilmesi gerek')
-    comment = models.TextField(null=True, blank=False, verbose_name='Yorum', help_text='Fikrinizi Yazınız',
-                               max_length=1000)
+    content = models.TextField(verbose_name='Yorum', max_length=1000, blank=False, null=True)
     comment_time = models.DateTimeField(auto_now_add=True, null=True)
 
     class Meta:
         verbose_name_plural = 'Yorumlar'
 
     def __str__(self):
-        return '%s%s' % (self.email, self.blog)
+        return "{} {}".format(self.user, self.blog)
 
     def get_screen_name(self):
-        if self.name:
-            return "%s %s" % (self.name, self.surname)
-        return self.email
+        if self.user.first_name:
+            return "{}".format(self.user.get_full_name())
+        return self.user.username

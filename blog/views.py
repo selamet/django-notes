@@ -76,6 +76,7 @@ def add_comment(request, slug):
     if form.is_valid():
         new_comment = form.save(commit=False)
         new_comment.blog = blog
+        new_comment.user =request.user
         new_comment.save()
         messages.success(request, 'Tebrikler yorumunuz başarı ile oluşturuldu')
         return HttpResponseRedirect(blog.get_absolute_url())
