@@ -13,11 +13,10 @@ class RegisterForm(forms.ModelForm):
     password_confirm = forms.CharField(required=True, label='Password Confirm', min_length=5,
                                        widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
-    sex = forms.ChoiceField(required=True, choices=UserProfile.SEX)
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'sex', 'username', 'email', 'password', 'password_confirm']
+        fields = ['first_name', 'last_name', 'username', 'email', 'password', 'password_confirm']
 
     def __init__(self, *args, **kwargs):
         super(RegisterForm, self).__init__(*args, **kwargs)

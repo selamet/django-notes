@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from django.shortcuts import reverse
+from django.db.models.signals import post_save
 
 
 # Create your models here.
@@ -12,7 +13,7 @@ class UserProfile(models.Model):
     bio = models.TextField(max_length=1000, verbose_name='Hakkımda', blank=True, null=True)
     profile_photo = models.ImageField(null=True, blank=True, verbose_name='Profil Fotoğrafı')
     dogum_tarihi = models.DateTimeField(null=True, blank=True, verbose_name='Doğum Tarihi')
-    sex = models.CharField(choices=SEX, blank=False, null=True, max_length=6, verbose_name='Cinsiyet')
+    sex = models.CharField(choices=SEX, blank=True, null=True, max_length=6, verbose_name='Cinsiyet')
 
     class Meta:
         verbose_name_plural = 'Kullanici Profilleri'
@@ -39,3 +40,11 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return "{} Profile".format(self.get_screen_name())
+
+
+def create_profile(sender, created, instance, *args, **kwargs):
+    if created:
+        UserProfile.objects.create(user=instance)
+
+
+post_save.connect(create_profile, sender=User)

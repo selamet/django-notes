@@ -16,10 +16,8 @@ def register(request):
         user = form.save(commit=False)
         username = form.cleaned_data.get('username')
         password = form.cleaned_data.get('password')
-        sex = form.cleaned_data.get('sex')
         user.set_password(password)
         user.save()
-        UserProfile.objects.create(user=user, sex=sex)
         user = authenticate(username=username, password=password)
         if user is not None:
             if user.is_active:
