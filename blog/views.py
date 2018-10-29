@@ -1,6 +1,6 @@
 from django.shortcuts import render, HttpResponse, get_object_or_404, HttpResponseRedirect, reverse
 from django.http import HttpResponseBadRequest, HttpResponseForbidden
-from .models import Blog
+from .models import Blog, FavoriteBlog
 from .forms import IletisimForm, BlogForm, PostSorugForm, CommentForm
 from django.contrib import messages
 from django.db.models import Q
@@ -76,16 +76,30 @@ def add_comment(request, slug):
     if form.is_valid():
         new_comment = form.save(commit=False)
         new_comment.blog = blog
-        new_comment.user =request.user
+        new_comment.user = request.user
         new_comment.save()
         messages.success(request, 'Tebrikler yorumunuz başarı ile oluşturuldu')
         return HttpResponseRedirect(blog.get_absolute_url())
 
 
 @login_required(login_url=reverse_lazy('user-login'))
+def add_or_remove_favorite(request, slug):
+    url = request.GET.get('next', None)
+    blog = get_object_or_404(Blog, slug=slug)
+    favori_blog = FavoriteBlog.objects.filter(blog=blog, user=request.user)
+    if favori_blog.exists():
+        favori_blog.delete()
+    else:
+        FavoriteBlog.objects.create(blog=blog, user=request.user)
+    if not url:
+        url = reverse('post-list')
+    return HttpResponseRedirect(url)
+
+
+@login_required(login_url=reverse_lazy('user-login'))
 def post_update(request, slug):
     blog = get_object_or_404(Blog, slug=slug)
-    if request.user !=blog.user:
+    if request.user != blog.user:
         return HttpResponseForbidden
     form = BlogForm(instance=blog, data=request.POST or None,
                     files=request.FILES or None)  # bloğun içerisindeki değerleri çeker
@@ -102,7 +116,7 @@ def post_update(request, slug):
 @login_required(login_url=reverse_lazy('user-login'))
 def post_delete(request, slug):
     blog = get_object_or_404(Blog, slug=slug)
-    if request.user !=blog.user:
+    if request.user != blog.user:
         return HttpResponseForbidden
     blog.delete()
     msg = 'Tebrikler %s isimli gönderiniz başarı ile silindi.' % (blog.title)

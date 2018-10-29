@@ -66,6 +66,9 @@ class Blog(models.Model):
         else:
             return '/media/default/marijuana.jpg'
 
+    def get_added_favorite_user(self):
+        return self.favorite_blog.values_list('user__username', flat=True)
+
     def get_unique_slug(self):
         sayi = 0
         slug = slugify(unidecode(self.title))
@@ -110,3 +113,14 @@ class Comment(models.Model):
         if self.user.first_name:
             return "{}".format(self.user.get_full_name())
         return self.user.username
+
+
+class FavoriteBlog(models.Model):
+    user = models.ForeignKey(User, null=True, default=1, related_name='favorite_blog', on_delete=True)
+    blog = models.ForeignKey(Blog, null=True, on_delete=True, related_name='favorite_blog')
+
+    class Meta:
+        verbose_name_plural = 'Favorilere Eklenen Gönderileri'
+
+    def __str__(self):
+        return "{} {}".format(self.user, self.blog)

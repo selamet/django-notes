@@ -36,6 +36,10 @@
                 {% for post in posts %}
                     <h3><a href="{% url 'post-detail' post.slug %}"> {{ post.title }}</a>
                         {{ post.get_yayin_taslak_html }}
+                        <a href="{% url 'add-remove-favorite' post.slug %}?next={% url 'post-list' %}"
+                           class="btn btnsm btn-default">
+                            <span class="glyphicon glyphicon-star {% if request.user.username in post.get_added_favorite_user %}active{% endif %}"></span>
+                        </a>
                         <small style="font-size:small"><span
                                 class="glyphicon glyphicon-time"></span> {{ post.created_date }}</small>
                     </h3>
@@ -69,6 +73,8 @@
 
 
 
+
+
                                             {{ posts.previous_page_number }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&laquo;</a>
                                     </li>
                                 {% else %}
@@ -84,6 +90,8 @@
 
 
 
+
+
                                                 {{ i }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ i }}</a>
                                         </li>
                                     {% endif %}
@@ -91,6 +99,8 @@
 
                                 {% if posts.has_next %}
                                     <li><a href="?page=
+
+
 
 
 
