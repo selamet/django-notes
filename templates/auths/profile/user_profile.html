@@ -1,40 +1,25 @@
-{% extends 'base.html' %}
+{% extends 'auths/profile/user_profile_base.html' %}
 
-{% block title %} {{ user.profile.get_screen_name }}{% endblock %}
 
-{% block icerik %}
-    <div class="row">
-        <div class="col-lg-8 pull-center">
-            <div class="text-center">
-                <img class="img-circle user-profile" src="{{ user.userprofile.get_profile_photo }}">
-            </div>
-            <div class="text-center">
-                <br/>
-                {% if user.userprofile.user_full_name %}
-                    <span class="text"><b>{{ user.userprofile.user_full_name|upper }}</b></span>
-                    <br/>
-                {% endif %}
-                <span class="text">
-                    <b>@{{ user.username }}</b>
-                </span>
-                <span class="text">
-                    <br>
-                    <b>{{ user.userprofile.get_sex_display }}</b>
-                </span>
-            </div>
-            {% if request.user == user %}
-                {% include 'auths/profile/include/owner_navbar.html' %}
+{% load static %}
 
-            {% else %}
-                {% include 'auths/profile/include/visitor_navbar.html' %}
-            {% endif %}
-            <div>
-                <div>
-                    {% block profil_icerik %}
-                    {% endblock %}
+{% block profil_icerik %}
+
+    <div class="row" style="margin-top: 20px">
+        <div class="col-lg-12">
+            {% for post in user.blog.all %}
+                <div class="row">
+                    <div class="col-lg-10 pull-center">
+                        <h1 class=""><a href="{% url 'post-detail' post.slug %}"> {{ post.title }}</a>
+                            <small>{{ post.get_yayin_taslak_html }} </small>
+                            <small class="pull-right"><span
+                                    class="glyphicon glyphicon-time"></span> {{ post.created_date }}</small>
+                        </h1>
+                        <img src="{{ post.get_image }}" class="img-responsive">
+                        <p>{{ post.content|safe|truncatechars:150 }}</p>
+                    </div>
                 </div>
-
-            </div>
+            {% endfor %}
         </div>
     </div>
 {% endblock %}

@@ -25,6 +25,10 @@
 
                 <div class="row">
                     <div class="col-lg-12">
+                        <p><span class="glyphicon glyphicon-tree-deciduous"></span> <b>
+                            Yazar: <a
+                                href="{% url 'user-profile' user.username %}">{{ blog.user.userprofile.get_screen_name }}</a>
+                        </b></p>
                         {% if blog.image %}
                             <img class="img-responsive" src="{{ blog.image.url }}" alt="">
 
@@ -35,8 +39,7 @@
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
-                        <p><span class="glyphicon glyphicon-tree-deciduous"></span> <b>
-                            Yazar: {{ blog.user.userprofile.get_screen_name }}</b></p>
+
 
                         <p class="lead"> {{ blog.content|linebreaksbr }}</p>
                         <p class="lead">
