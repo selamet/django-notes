@@ -13,7 +13,6 @@ class RegisterForm(forms.ModelForm):
     password_confirm = forms.CharField(required=True, label='Password Confirm', min_length=5,
                                        widget=forms.PasswordInput(attrs={'class': 'form-control'}))
 
-
     class Meta:
         model = User
         fields = ['first_name', 'last_name', 'username', 'email', 'password', 'password_confirm']
@@ -73,16 +72,26 @@ class UserProfileUpdateForm(forms.ModelForm):
     sex = forms.ChoiceField(required=True, choices=UserProfile.SEX)
     profile_photo = forms.ImageField(required=False)
     bio = forms.CharField(widget=forms.Textarea, required=False)
+    dogum_tarihi = forms.DateField(input_formats=("%d.%m.%Y",), widget=forms.DateInput(format="%d.%m.%Y"),
+                                   required=True,
+                                   label="Dogum Tarihi")
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'sex', 'profile_photo', 'bio']
+        fields = ['first_name', 'last_name', 'username', 'email', 'dogum_tarihi', 'sex', 'profile_photo', 'bio']
 
     def __init__(self, *args, **kwargs):
         super(UserProfileUpdateForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs = {'class': 'form-control'}
         self.fields['bio'].widget.attrs['rows'] = 10
+        DATEPICKER = {
+            'type': 'text',
+            'class': 'form-control',
+            'autocomplete': 'off'
+        }
+
+        self.fields['dogum_tarihi'].widget.attrs.update(DATEPICKER)
 
     def clean_email(self):
         email = self.cleaned_data.get('email', None)

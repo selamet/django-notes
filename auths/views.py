@@ -62,7 +62,8 @@ def user_settings(request):
     sex = request.user.userprofile.sex
     bio = request.user.userprofile.bio
     profile_photo = request.user.userprofile.profile_photo
-    initial = {'sex': sex, 'bio': bio, 'profile_photo': profile_photo}
+    dogum_tarihi = request.user.userprofile.dogum_tarihi
+    initial = {'sex': sex, 'bio': bio, 'profile_photo': profile_photo, 'dogum_tarihi': dogum_tarihi}
     form = UserProfileUpdateForm(initial=initial, instance=request.user, data=request.POST or None,
                                  files=request.FILES or None)
     if request.method == 'POST':
@@ -70,10 +71,12 @@ def user_settings(request):
             user = form.save(commit=True)
             bio = form.cleaned_data.get('bio', None)
             sex = form.cleaned_data.get('sex', None)
+            dogum_tarihi = form.cleaned_data.get('dogum_tarihi', None)
             profile_photo = form.cleaned_data.get('profile_photo', None)
             user.userprofile.sex = sex
             user.userprofile.profile_photo = profile_photo
             user.userprofile.bio = bio
+            user.userprofile.dogum_tarihi = dogum_tarihi
             user.userprofile.save()
             messages.success(request, 'Tebrikler kullanıcı bilgileriniz başarı ile güncellendi', extra_tags='success')
             return HttpResponseRedirect(reverse('user-profile', kwargs={'username': user.username}))
