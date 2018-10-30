@@ -43,16 +43,21 @@
                         <small style="font-size:small"><span
                                 class="glyphicon glyphicon-time"></span> {{ post.created_date }}</small>
                     </h3>
-
                     {% if post.get_image %}
                         <img class="img-responsive" src="{{ post.get_image }}" alt="">
 
                     {% endif %}
                     <p><span class="glyphicon glyphicon-tree-deciduous"></span> <b>
                         Yazar: <a href="{% url 'user-profile' post.user.username %}"> {{ post.user.username }}</a></b>
+                        <br>
+                        <span title="Yorum Sayısı">
+                    <span class="glyphicon glyphicon-comment"><b>{{ post.get_comment_count }}</b></span>
+                        </span>
+                        <span title="Favori Sayısı">
+                    <span class="glyphicon glyphicon-star active"><b>{{ post.get_favorite_count }}</b></span>
+                          </span>
                     </p>
-
-                    <p style="margin-top: 20px;">{{ post.content|linebreaksbr|truncatechars:250 }}</p>
+                    <p style="margin-top: 20px;"> {{ post.content|linebreaksbr|truncatechars:250 }}</p>
 
                 {% empty %}
                     <p>Aradağınız Kiriteder Bir Blog Bulunamadı</p>
@@ -75,6 +80,8 @@
 
 
 
+
+
                                             {{ posts.previous_page_number }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&laquo;</a>
                                     </li>
                                 {% else %}
@@ -92,6 +99,8 @@
 
 
 
+
+
                                                 {{ i }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ i }}</a>
                                         </li>
                                     {% endif %}
@@ -99,6 +108,8 @@
 
                                 {% if posts.has_next %}
                                     <li><a href="?page=
+
+
 
 
 

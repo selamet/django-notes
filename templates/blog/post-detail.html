@@ -12,17 +12,16 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="col-lg-8 col-lg-offset-2">
-
-
                 <h2 class="page-header"><a href="{% url 'post-list' %}">
                     <span class="glyphicon glyphicon-circle-arrow-left"></span></a> <a>{{ blog.title|upper }}</a>
 
                     <span style="font-size:20px;">{{ blog.get_yayin_taslak_html }}</span>
-
-
+                    <a href="{% url 'add-remove-favorite' blog.slug %}?next={% url 'post-detail' blog.slug %}"
+                       class="btn btnsm btn-default">
+                        <span class="glyphicon glyphicon-star {% if request.user.username in post.get_added_favorite_user %}active{% endif %}"></span>
+                    </a>
                     <small class="pull-right">{{ blog.created_date }}</small>
                 </h2>
-
                 <div class="row">
                     <div class="col-lg-12">
                         <p><span class="glyphicon glyphicon-tree-deciduous"></span> <b>
@@ -104,8 +103,4 @@
             </div>
         </div>
     </div>
-
-
-
-
 {% endblock %}

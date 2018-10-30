@@ -48,6 +48,16 @@ class Blog(models.Model):
     def __str__(self):
         return '{} {}'.format(self.title, self.user)
 
+    def get_comment_count(self):
+        yorum_sayisi = self.comment.count()
+        if yorum_sayisi>0:
+            return yorum_sayisi
+        return "Bu gönderiye henüz yorum yapılmadı"
+
+
+    def get_favorite_count(self):
+        favori_sayisi =self.favorite_blog.count()
+        return favori_sayisi
     @classmethod
     def get_taslak_or_yayin(cls, taslak_yayin):
         return cls.objects.filter(yayin_taslak=taslak_yayin)
