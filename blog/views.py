@@ -7,6 +7,7 @@ from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
 from django.http import JsonResponse
+from django.template.loader import render_to_string
 
 from django.urls import reverse_lazy
 
@@ -21,6 +22,16 @@ def deneme_ajax(request):
         return HttpResponseBadRequest()
     isim = request.POST.get('isim')
     return JsonResponse(data={'msg': 'merhaba ajax ve django', 'isim': isim})
+
+
+def deneme_ajax_2(request):
+    if not request.is_ajax():
+        return HttpResponseBadRequest()
+    context = {'ogrenci': {'isim_soyisim': 'Selamet Şamlı', 'ogretmen_isim_soyisim': 'Ali Keskin'}}
+    html = render_to_string('ogrenci_velisine_mesaj.html', context=context, request=request)
+    print(html)
+    data = {'html': html}
+    return JsonResponse(data=data)
 
 
 def deneme(request):

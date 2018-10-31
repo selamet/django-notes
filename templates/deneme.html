@@ -5,6 +5,17 @@
 {% block ust_icerik %}
     <script type="text/javascript" rel="script">
         $(document).ready(function () {
+            $("#ogrenci_getir").click(function () {
+               $.ajax({
+                   type:"GET",
+                   url:"{% url 'deneme-ajax-2' %}",
+                   dataType:'json',
+                   data:{},
+                   success:function (data) {
+                       $("#gelen_mesaj").html(data.html)
+                   }
+               })
+            });
 
             $("#ajax_deneme_form").submit(function (e) {
                 e.preventDefault();
@@ -14,10 +25,10 @@
                 var data = $this.serialize()
 
                 $.ajax({
-                    url:action,
-                    type:type,
-                    data:data,
-                    success:function (data) {
+                    url: action,
+                    type: type,
+                    data: data,
+                    success: function (data) {
                         $this.append(data.isim);
                     }
                 });
@@ -63,26 +74,40 @@
 
 {% block icerik %}
 
-    <div class="col-lg-6 pull-center  ">
-        <button url="{% url 'deneme-ajax' %}" id="selam" name="selam" class="btn btn-primary">
-            Selam
-        </button>
+    <div class="row">
 
-        <button id="selam" url="{% url 'deneme' %}" name="selam" class="btn btn-success">
-            Merhaba
-        </button>
-        <button id="naber" name="naber" class="btn btn-danger">
-            Tıklayın
-        </button>
-        <br>
-        <form method="post" id="ajax_deneme_form" action="{% url 'deneme-ajax' %}">
-            {% csrf_token %}
-            <input id="prodId" name="isim" type="hidden" value="Selamet">
-            <button class="btn btn-success" type="submit">
-                Ajax isteği gönder
+
+        <div class="col-lg-6 pull-center  ">
+            <button url="{% url 'deneme-ajax' %}" id="selam" name="selam" class="btn btn-primary">
+                Selam
             </button>
-        </form>
 
+            <button id="selam" url="{% url 'deneme' %}" name="selam" class="btn btn-success">
+                Merhaba
+            </button>
+            <button id="naber" name="naber" class="btn btn-danger">
+                Tıklayın
+            </button>
+            <br>
+            <form method="post" id="ajax_deneme_form" action="{% url 'deneme-ajax' %}">
+                {% csrf_token %}
+                <input id="prodId" name="isim" type="hidden" value="Selamet">
+                <button class="btn btn-success" type="submit">
+                    Ajax isteği gönder
+                </button>
+            </form>
+
+        </div>
     </div>
-
+    <div class="row">
+    <div class="col-lg-6 pull-center">
+        <h1>Render To String Kullanımı</h1>
+        <button class="btn btn-success" id="ogrenci_getir">
+            Ögrenci Getir
+        </button>
+        <div id="gelen_mesaj">
+            
+        </div>
+    </div>
+    </div>
 {% endblock %}
