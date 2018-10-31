@@ -6,11 +6,28 @@ from django.contrib import messages
 from django.db.models import Q
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.decorators import login_required
+from django.http import JsonResponse
+
 from django.urls import reverse_lazy
 
 from .decorator import is_post
 
 mesajlar = []
+
+
+def deneme_ajax(request):
+    print(request.POST)
+    if not request.is_ajax():
+        return HttpResponseBadRequest()
+    isim = request.POST.get('isim')
+    return JsonResponse(data={'msg': 'merhaba ajax ve django', 'isim': isim})
+
+
+def deneme(request):
+    if request.is_ajax():
+        context = {'msg': 'Merhabalar', 'is_valid': True}
+        return JsonResponse(data=context)
+    return render(request, 'deneme.html')
 
 
 def iletisim(request):

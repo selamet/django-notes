@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block ust_icerik %}
+    <script type="text/javascript" rel="script">
+        $(document).ready(function () {
+
+            $("#ajax_deneme_form").submit(function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var type = $this.attr('method');
+                var action = $this.attr('action');
+                var data = $this.serialize()
+
+                $.ajax({
+                    url:action,
+                    type:type,
+                    data:data,
+                    success:function (data) {
+                        $this.append(data.isim);
+                    }
+                });
+
+                console.log(data);
+                console.log(action);
+                console.log(type);
+
+            });
+
+            $('#selam').click(function () {
+                var $this = $(this);
+                var url = $this.attr('url');
+                $.ajax({
+                    url: url,
+                    method: "POST",
+                    dataType: 'json',
+                    data: {'csrfmiddlewaretoken': '{{ csrf_token }}'},
+                    success: function (data) {
+                        $this.html(data.msg)
+                    }
+                })
+            });
+
+            $('#naber').click(function () {
+                var $this = $(this);
+                var url = $(this).attr('url');
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: 'json',
+                    success: function (data) {
+                        $this.html(data.msg)
+                    }
+                })
+            })
+        });
+
+    </script>
+
+{% endblock %}
+
+
+{% block icerik %}
+
+    <div class="col-lg-6 pull-center  ">
+        <button url="{% url 'deneme-ajax' %}" id="selam" name="selam" class="btn btn-primary">
+            Selam
+        </button>
+
+        <button id="selam" url="{% url 'deneme' %}" name="selam" class="btn btn-success">
+            Merhaba
+        </button>
+        <button id="naber" name="naber" class="btn btn-danger">
+            Tıklayın
+        </button>
+        <br>
+        <form method="post" id="ajax_deneme_form" action="{% url 'deneme-ajax' %}">
+            {% csrf_token %}
+            <input id="prodId" name="isim" type="hidden" value="Selamet">
+            <button class="btn btn-success" type="submit">
+                Ajax isteği gönder
+            </button>
+        </form>
+
+    </div>
+
+{% endblock %}

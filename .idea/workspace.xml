@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a27f384d-a5fd-4f0b-89d3-e0e76ebe8df8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/post-detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post-detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/post-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post-list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/deneme.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/django_blog/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/django_blog/urls.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -34,15 +34,15 @@
     <session id="263974514">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="30" />
+          <entry key="project.closed" value="31" />
           <entry key="project.open.time.1" value="3" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="3" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="6" />
           <entry key="project.open.time.8" value="10" />
-          <entry key="project.open.time.9" value="8" />
-          <entry key="project.opened" value="32" />
+          <entry key="project.open.time.9" value="9" />
+          <entry key="project.opened" value="33" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -50,23 +50,23 @@
           <entry key="LICENSE" value="1" />
           <entry key="css" value="9" />
           <entry key="gitignore" value="2" />
-          <entry key="html" value="97" />
+          <entry key="html" value="98" />
           <entry key="jpg" value="4" />
           <entry key="js" value="4" />
           <entry key="md" value="4" />
-          <entry key="py" value="105" />
+          <entry key="py" value="108" />
           <entry key="rnc" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="9" />
-          <entry key="HTML" value="97" />
+          <entry key="HTML" value="98" />
           <entry key="Image" value="4" />
           <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="105" />
+          <entry key="Python" value="108" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -75,17 +75,17 @@
           <entry key="Django Console" value="261" />
           <entry key="Python Console" value="63" />
           <entry key="css" value="302" />
-          <entry key="html" value="12260" />
+          <entry key="html" value="13643" />
           <entry key="md" value="2488" />
-          <entry key="py" value="20930" />
+          <entry key="py" value="21340" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="302" />
-          <entry key="HTML" value="12260" />
+          <entry key="HTML" value="13643" />
           <entry key="Markdown" value="2479" />
-          <entry key="Python" value="21263" />
+          <entry key="Python" value="21673" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -95,44 +95,36 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/blog/models.py">
+        <entry file="file://$PROJECT_DIR$/django_blog/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="403">
-              <caret line="57" column="26" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="26" />
+            <state relative-caret-position="150">
+              <caret line="10" column="63" lean-forward="true" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
-                <marker date="1540937576797" expanded="true" signature="268:444" ph="..." />
-                <marker date="1540937576797" expanded="true" signature="473:658" ph="..." />
-                <marker date="1540937576797" expanded="true" signature="779:784" ph="..." />
-                <marker date="1540937576797" expanded="true" signature="2162:2246" ph="..." />
-                <marker date="1540937576797" expanded="true" signature="2306:2373" ph="..." />
-                <marker date="1540937576797" expanded="true" signature="2405:2686" ph="..." />
-                <marker date="1540937576797" expanded="true" signature="2805:3047" ph="..." />
-                <marker date="1540937576797" expanded="true" signature="2966:3047" ph="..." />
-                <marker date="1540937576797" expanded="true" signature="3332:3337" ph="..." />
-                <marker date="1540937576797" expanded="true" signature="4576:4577" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/blog/post-list.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="56" column="95" selection-start-line="56" selection-start-column="95" selection-end-line="56" selection-end-column="95" />
-              <folding>
-                <element signature="e#2164#2189#0#HTML" expanded="true" />
+                <element signature="e#635#667#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/templates/blog/post-detail.html">
+        <entry file="file://$PROJECT_DIR$/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="938">
-              <caret line="104" column="10" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="10" />
+            <state relative-caret-position="103">
+              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#99#0" expanded="true" />
+                <marker date="1541018853734" expanded="true" signature="756:823" ph="..." />
+                <marker date="1541018853734" expanded="true" signature="969:1014" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/deneme.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="296">
+              <caret line="79" column="40" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
             </state>
           </provider>
         </entry>
@@ -143,9 +135,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Python Script" />
-        <option value="HTML File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -183,7 +175,6 @@
         <option value="$PROJECT_DIR$/auths/admin.py" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/blog/decorator.py" />
-        <option value="$PROJECT_DIR$/django_blog/urls.py" />
         <option value="$PROJECT_DIR$/django_blog/settings.py" />
         <option value="$PROJECT_DIR$/static/bootstrap/js/bootstrap.min.js" />
         <option value="$PROJECT_DIR$/static/bootstrap/css/bootstrap-theme.min.css" />
@@ -204,7 +195,6 @@
         <option value="$PROJECT_DIR$/auths/models.py" />
         <option value="$PROJECT_DIR$/blog/admin.py" />
         <option value="$PROJECT_DIR$/blog/urls.py" />
-        <option value="$PROJECT_DIR$/blog/views.py" />
         <option value="$PROJECT_DIR$/static/base.css" />
         <option value="$PROJECT_DIR$/auths/views.py" />
         <option value="$PROJECT_DIR$/static/bootstrap-datetime/bootstrap-datetime.css" />
@@ -215,6 +205,9 @@
         <option value="$PROJECT_DIR$/templates/blog/post-detail.html" />
         <option value="$PROJECT_DIR$/blog/models.py" />
         <option value="$PROJECT_DIR$/templates/blog/post-list.html" />
+        <option value="$PROJECT_DIR$/django_blog/urls.py" />
+        <option value="$PROJECT_DIR$/blog/views.py" />
+        <option value="$PROJECT_DIR$/templates/deneme.html" />
       </list>
     </option>
   </component>
@@ -253,6 +246,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -268,19 +262,17 @@
             <path>
               <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
               <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="django_blog" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
               <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="blog" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -368,7 +360,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48757172" visible="true" weight="0.15993538" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.48757172" visible="true" weight="0.16235864" />
       <window_info id="Structure" order="1" sideWeight="0.5124283" side_tool="true" weight="0.15024233" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -378,7 +370,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.27260274" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.27260274" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.1849315" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32876712" />
@@ -421,9 +413,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/blog/migrations/0001_initial.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/ss.py" />
     <entry file="file://$PROJECT_DIR$/blog/models 2.py" />
     <entry file="file://$PROJECT_DIR$/../venv/lib/python3.7/site-packages/django/conf/__init__.py">
@@ -530,13 +519,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/django_blog/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/django_blog/settings.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1740">
@@ -607,9 +589,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="255">
           <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
-          <folding>
-            <element signature="e#122#146#0#HTML" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -663,24 +642,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
           <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="86" column="31" selection-start-line="86" selection-start-column="31" selection-end-line="86" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#99#0" expanded="true" />
-            <element signature="e#576#1161#0" />
-            <element signature="e#1208#2106#0" />
-            <element signature="e#2199#2393#0" />
-            <element signature="e#2495#2914#0" />
-            <element signature="e#3007#3622#0" />
-            <element signature="e#3715#4033#0" />
-            <element signature="e#4120#4750#0" />
-            <marker date="1540850086639" expanded="true" signature="3068:3415" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -741,7 +702,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/blog/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="403">
+        <state relative-caret-position="765">
           <caret line="57" column="26" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="26" />
           <folding>
             <element signature="e#0#28#0" expanded="true" />
@@ -759,13 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/post-detail.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="938">
-          <caret line="104" column="10" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blog/post-list.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="293">
@@ -773,6 +727,42 @@
           <folding>
             <element signature="e#2164#2189#0#HTML" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blog/post-detail.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="454">
+          <caret line="104" column="10" selection-start-line="104" selection-start-column="10" selection-end-line="104" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/django_blog/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="63" lean-forward="true" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+          <folding>
+            <element signature="e#635#667#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="103">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#99#0" expanded="true" />
+            <marker date="1541018853734" expanded="true" signature="756:823" ph="..." />
+            <marker date="1541018853734" expanded="true" signature="969:1014" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/deneme.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="79" column="40" selection-start-line="79" selection-start-column="40" selection-end-line="79" selection-end-column="40" />
         </state>
       </provider>
     </entry>
