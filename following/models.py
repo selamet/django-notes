@@ -19,5 +19,8 @@ class Following(models.Model):
         cls.objects.create(follower=follower, followed=followed)
 
     @classmethod
+    def kullanici_takipten_cikar(cls,follower,followed):
+        cls.objects.filter(follower=follower, followed=followed).delete()
+    @classmethod
     def kullaniciyi_takip_ediyor_mu(cls, follower, followed):
         return cls.objects.filter(follower=follower, followed=followed).exists()
