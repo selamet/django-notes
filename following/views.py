@@ -3,6 +3,7 @@ from django.http import HttpResponseBadRequest, JsonResponse
 from django.shortcuts import get_object_or_404
 
 from .models import Following
+from django.template.loader import render_to_string
 
 from django.contrib.auth.models import User
 
@@ -11,7 +12,7 @@ def kullanici_takip_et_cikar(request):
     if not request.is_ajax():
         return HttpResponseBadRequest()
 
-    data = {'is_valid': True, 'msg': 'Takipden Çıkar'}
+    data = {'html': '', 'is_valid': True, 'msg': 'Takipden Çıkar'}
     follower_username = request.GET.get('follower_username', None)
     followed_username = request.GET.get('followed_username', None)
 
@@ -25,5 +26,11 @@ def kullanici_takip_et_cikar(request):
     else:
         Following.kullanici_takipten_cikar(followed=followed, follower=follower)  # takipten çıkarma işlemi
         data.update({'msg': 'Takip Et'})
+
+    takipci_ve_takip_edilen_sayisi = Following.kullanici_takip_edilenler_ve_takipciler(followed)
+    context = {'takipciler': takipci_ve_takip_edilen_sayisi['takipciler'],
+               'takip_edilenler': takipci_ve_takip_edilen_sayisi['takip_edilenler']}
+    html = render_to_string('auths/profile/include/following/following_partion.html', context=context, request=request)
+    data.update({'html':html})
 
     return JsonResponse(data=data)

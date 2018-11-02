@@ -58,11 +58,17 @@ def user_logout(request):
 def user_profile(request, username):
     takip_ediyor_mu = False
     user = get_object_or_404(User, username=username)
+    takipci_ve_takip_edilen = Following.kullanici_takip_edilenler_ve_takipciler(user)
+    takipciler = takipci_ve_takip_edilen['takipciler']
+    takip_edilenler = takipci_ve_takip_edilen['takip_edilenler']
+
     if user != request.user:
         takip_ediyor_mu = Following.kullaniciyi_takip_ediyor_mu(follower=request.user, followed=user)
 
     return render(request, 'auths/profile/user_profile.html',
-                  context={'user': user, 'page': 'profile', 'takip_ediyor_mu': takip_ediyor_mu})
+                  context={'takip_edilenler': takip_edilenler, 'takipciler': takipciler, 'user': user,
+                           'page': 'profile',
+                           'takip_ediyor_mu': takip_ediyor_mu})
 
 
 def user_settings(request):

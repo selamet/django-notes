@@ -21,6 +21,7 @@
                     success: function (data) {
                         if (data.is_valid) {
                             $this.html(data.msg)
+                            $("#user_following").html(data.html)
                         }
                     }
                 })
@@ -66,6 +67,12 @@
                     <b>{{ user.userprofile.get_sex_display }}</b>
                 </span>
             </div>
+            <div id="user_following" class="row">
+            {% include 'auths/profile/include/following/following_partion.html' %}
+
+            </div>
+
+
             {% if request.user == user %}
                 {% include 'auths/profile/include/owner_navbar.html' %}
 
