@@ -5,6 +5,13 @@
 {% block icerik %}
     <div class="row">
         <div class="col-lg-8 pull-center">
+            {% if request.user != user %}
+                <div>
+                    <button id="takip_button" class="btn btn-success btn-md">
+                        Takip Et
+                    </button>
+                </div>
+            {% endif %}
             <div class="text-center">
                 <img class="img-circle user-profile" src="{{ user.userprofile.get_profile_photo }}">
             </div>

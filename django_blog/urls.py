@@ -18,12 +18,13 @@ from django.urls import path
 from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
-from blog.views import iletisim, deneme, deneme_ajax,deneme_ajax_2
+from blog.views import iletisim, deneme, deneme_ajax, deneme_ajax_2
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('posts/', include('blog.urls')),
     path('auths/', include('auths.urls')),
+    path('following/', include('following.urls')),
     path('iletisim/', iletisim, name='iletisim'),
     path('deneme/', deneme, name='deneme'),
     path('deneme-ajax/', deneme_ajax, name='deneme-ajax'),
