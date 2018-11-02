@@ -7,8 +7,8 @@ from .models import Following
 from django.contrib.auth.models import User
 
 
-# Create your views here.
-def kullanici_takip_et(request):
+
+def kullanici_takip_et_cikar(request):
     if not request.is_ajax():
         return HttpResponseBadRequest()
 

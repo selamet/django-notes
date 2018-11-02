@@ -12,7 +12,7 @@ class Following(models.Model):
         verbose_name_plural = "Takipleşme Sistemi"
 
     def __str__(self):
-        return " Follower{} - Followed{}".format(self.followe.username, self.followed)
+        return " Follower: {} - Followed: {}".format(self.follower.username, self.followed)
 
     @classmethod
     def kullanici_takip_et(cls, follower, followed):
