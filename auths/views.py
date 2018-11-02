@@ -8,6 +8,8 @@ from blog.decorator import anonymous_required
 from .models import UserProfile
 from .forms import RegisterForm, LoginForm, UserProfileUpdateForm, UserPasswordChangeForm2
 
+from following.models import Following
+
 
 @anonymous_required
 def register(request):
@@ -54,8 +56,13 @@ def user_logout(request):
 
 
 def user_profile(request, username):
+    takip_ediyor_mu = False
     user = get_object_or_404(User, username=username)
-    return render(request, 'auths/profile/user_profile.html', context={'user': user, 'page': 'profile'})
+    if user != request.user:
+        takip_ediyor_mu = Following.kullaniciyi_takip_ediyor_mu(follower=request.user, followed=user)
+
+    return render(request, 'auths/profile/user_profile.html',
+                  context={'user': user, 'page': 'profile', 'takip_ediyor_mu': takip_ediyor_mu})
 
 
 def user_settings(request):

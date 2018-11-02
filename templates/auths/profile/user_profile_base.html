@@ -41,7 +41,11 @@
                             url="
                     {% url 'kullanici-takip-et-cikar' %}" id="takip_et_cikar_button"
                             class="btn btn-success btn-md">
-                        Takip Et
+                        {% if takip_ediyor_mu %}
+                            <b>Takip Ediliyor.</b>
+                        {% else %}
+                            <b>Takip Et.</b>
+                        {% endif %}
                     </button>
                 </div>
             {% endif %}
