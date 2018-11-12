@@ -34,3 +34,13 @@ class Following(models.Model):
 
         data.update({'takip_edilenler': takip_edilenler, 'takipciler': takipciler})
         return data
+
+    @classmethod
+    def get_followers(cls, user):
+        return cls.objects.filter(followed=user)
+        # kullanıcının takipçilerini getir.
+
+    @classmethod
+    def get_followed(cls, user):
+        return cls.objects.filter(follower=user)
+        # kullanıcının takip ettiklerini getir.

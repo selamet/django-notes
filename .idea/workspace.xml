@@ -2,9 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a27f384d-a5fd-4f0b-89d3-e0e76ebe8df8" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/following/profile/include/following_followed_list.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/following/profile/include/following_modal.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/auths/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/auths/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/following/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/following/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/following/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/following/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/following/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/following/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/auths/profile/include/following/following_partion.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auths/profile/include/following/following_partion.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/auths/profile/user_profile_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auths/profile/user_profile_base.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -50,23 +56,23 @@
           <entry key="LICENSE" value="1" />
           <entry key="css" value="9" />
           <entry key="gitignore" value="2" />
-          <entry key="html" value="104" />
+          <entry key="html" value="108" />
           <entry key="jpg" value="4" />
           <entry key="js" value="4" />
           <entry key="md" value="4" />
-          <entry key="py" value="118" />
+          <entry key="py" value="122" />
           <entry key="rnc" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="9" />
-          <entry key="HTML" value="104" />
+          <entry key="HTML" value="108" />
           <entry key="Image" value="4" />
           <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="118" />
+          <entry key="Python" value="122" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -75,17 +81,17 @@
           <entry key="Django Console" value="261" />
           <entry key="Python Console" value="63" />
           <entry key="css" value="302" />
-          <entry key="html" value="15359" />
+          <entry key="html" value="16738" />
           <entry key="md" value="2488" />
-          <entry key="py" value="23873" />
+          <entry key="py" value="25039" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="302" />
-          <entry key="HTML" value="15359" />
+          <entry key="HTML" value="16738" />
           <entry key="Markdown" value="2479" />
-          <entry key="Python" value="24206" />
+          <entry key="Python" value="25372" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -94,14 +100,87 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/auths/views.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/following/urls.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="668">
-              <caret line="123" column="67" selection-start-line="123" selection-start-column="67" selection-end-line="123" selection-end-column="67" />
+            <state relative-caret-position="90">
+              <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
               <folding>
-                <element signature="e#0#85#0" expanded="true" />
+                <element signature="e#0#32#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/following/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="516">
+              <caret line="44" column="47" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+                <marker date="1542050057190" expanded="true" signature="105:110" ph="..." />
+                <marker date="1542050057190" expanded="true" signature="449:506" ph="..." />
+                <marker date="1542050057190" expanded="true" signature="829:909" ph="..." />
+                <marker date="1542050057190" expanded="true" signature="1485:1486" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/auths/profile/user_profile_base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="48" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="48" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/following/profile/include/following_modal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+              <folding>
+                <element signature="e#252#259#1#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/following/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="250">
+              <caret line="47" column="59" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="59" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1542053522661" expanded="true" signature="459:464" ph="..." />
+                <marker date="1542053522661" expanded="true" signature="1799:1804" ph="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/following/profile/include/following_followed_list.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="150">
+              <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/auths/profile/include/following/following_partion.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
             </state>
           </provider>
         </entry>
@@ -136,9 +215,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/auth/views.py" />
-        <option value="$PROJECT_DIR$/auth/urls.py" />
-        <option value="$PROJECT_DIR$/templates/blog/post-create.html" />
         <option value="$PROJECT_DIR$/templates/iletisim.html" />
         <option value="$PROJECT_DIR$/templates/auth/register.html" />
         <option value="$PROJECT_DIR$/templates/auth/login.html" />
@@ -181,12 +257,15 @@
         <option value="$PROJECT_DIR$/django_blog/settings.py" />
         <option value="$PROJECT_DIR$/following/admin.py" />
         <option value="$PROJECT_DIR$/django_blog/urls.py" />
-        <option value="$PROJECT_DIR$/following/urls.py" />
-        <option value="$PROJECT_DIR$/following/models.py" />
-        <option value="$PROJECT_DIR$/templates/auths/profile/include/following/following_partion.html" />
-        <option value="$PROJECT_DIR$/following/views.py" />
-        <option value="$PROJECT_DIR$/templates/auths/profile/user_profile_base.html" />
         <option value="$PROJECT_DIR$/auths/views.py" />
+        <option value="$PROJECT_DIR$/following/models.py" />
+        <option value="$PROJECT_DIR$/following/urls.py" />
+        <option value="$PROJECT_DIR$/templates/auths/profile/include/following/following_partion.html" />
+        <option value="$PROJECT_DIR$/templates/following/profile/include/following_modal.html" />
+        <option value="$PROJECT_DIR$/templates/auths/profile/include/following/following_followed_list.html" />
+        <option value="$PROJECT_DIR$/templates/auths/profile/user_profile_base.html" />
+        <option value="$PROJECT_DIR$/following/views.py" />
+        <option value="$PROJECT_DIR$/templates/following/profile/include/following_followed_list.html" />
       </list>
     </option>
   </component>
@@ -236,7 +315,7 @@
             <path>
               <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
               <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
-              <item name="auths" type="462c0819:PsiDirectoryNode" />
+              <item name="following" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
@@ -264,6 +343,36 @@
               <item name="profile" type="462c0819:PsiDirectoryNode" />
               <item name="include" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="auths" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+              <item name="following" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="following" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="following" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="following" type="462c0819:PsiDirectoryNode" />
+              <item name="profile" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -278,16 +387,17 @@
     <property name="settings.editor.selected.configurable" value="preferences.keymap" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/media/img" />
-      <recent name="$PROJECT_DIR$/templates/blog" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/static/img" />
       <recent name="$PROJECT_DIR$/static/bootstrap/js" />
       <recent name="$PROJECT_DIR$/static/bootstrap" />
       <recent name="$PROJECT_DIR$/static/bootstrap/css" />
       <recent name="$PROJECT_DIR$/media/img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/following/profile/include" />
+      <recent name="$PROJECT_DIR$/media/img" />
+      <recent name="$PROJECT_DIR$/templates/blog" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -365,7 +475,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32876712" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2" />
+      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.28219178" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.1849315" />
       <window_info anchor="bottom" id="Python Console" order="10" weight="0.32876712" />
@@ -408,20 +518,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/templates/blog/post-update.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="70" selection-start-line="21" selection-start-column="70" selection-end-line="21" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/blog/post-create.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/iletisim.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="236">
@@ -652,6 +748,19 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
           <caret line="57" column="26" selection-start-line="57" selection-start-column="8" selection-end-line="57" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1540937576797" expanded="true" signature="268:444" ph="..." />
+            <marker date="1540937576797" expanded="true" signature="473:658" ph="..." />
+            <marker date="1540937576797" expanded="true" signature="779:784" ph="..." />
+            <marker date="1540937576797" expanded="true" signature="2162:2246" ph="..." />
+            <marker date="1540937576797" expanded="true" signature="2306:2373" ph="..." />
+            <marker date="1540937576797" expanded="true" signature="2405:2686" ph="..." />
+            <marker date="1540937576797" expanded="true" signature="2805:3047" ph="..." />
+            <marker date="1540937576797" expanded="true" signature="2966:3047" ph="..." />
+            <marker date="1540937576797" expanded="true" signature="3332:3337" ph="..." />
+            <marker date="1540937576797" expanded="true" signature="4576:4577" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -710,54 +819,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/auths/profile/user_profile_base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/following/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" column="66" selection-start-line="5" selection-start-column="66" selection-end-line="5" selection-end-column="90" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/following/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="30" column="54" selection-start-line="30" selection-start-column="54" selection-end-line="30" selection-end-column="54" />
-          <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1541194239600" expanded="true" signature="105:110" ph="..." />
-            <marker date="1541194239600" expanded="true" signature="449:506" ph="..." />
-            <marker date="1541194239600" expanded="true" signature="829:909" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/following/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="237">
-          <caret line="22" selection-start-line="22" selection-end-line="22" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <marker date="1541194809968" expanded="true" signature="450:455" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/auths/profile/include/following/following_partion.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="9" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/following/admin.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -768,12 +829,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/following/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="516">
+          <caret line="44" column="47" selection-start-line="44" selection-start-column="47" selection-end-line="44" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+            <marker date="1542050057190" expanded="true" signature="105:110" ph="..." />
+            <marker date="1542050057190" expanded="true" signature="449:506" ph="..." />
+            <marker date="1542050057190" expanded="true" signature="829:909" ph="..." />
+            <marker date="1542050057190" expanded="true" signature="1485:1486" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/auths/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="668">
-          <caret line="123" column="67" selection-start-line="123" selection-start-column="67" selection-end-line="123" selection-end-column="67" />
+        <state relative-caret-position="-218">
+          <caret line="85" column="64" selection-start-line="85" selection-start-column="64" selection-end-line="85" selection-end-column="64" />
           <folding>
             <element signature="e#0#85#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/following/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="57" selection-start-line="6" selection-start-column="57" selection-end-line="6" selection-end-column="57" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/auths/profile/include/following/following_partion.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="62" selection-start-line="9" selection-start-column="62" selection-end-line="9" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/following/profile/include/following_modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="6" selection-start-line="17" selection-start-column="6" selection-end-line="17" selection-end-column="6" />
+          <folding>
+            <element signature="e#252#259#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/following/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="47" column="59" selection-start-line="47" selection-start-column="59" selection-end-line="47" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1542053522661" expanded="true" signature="459:464" ph="..." />
+            <marker date="1542053522661" expanded="true" signature="1799:1804" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/auths/profile/user_profile_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="48" selection-start-line="27" selection-start-column="44" selection-end-line="27" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/following/profile/include/following_followed_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="10" column="63" selection-start-line="10" selection-start-column="63" selection-end-line="10" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#1;n#div#0;n#div#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

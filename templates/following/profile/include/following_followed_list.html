@@ -1,0 +1,18 @@
+<div class="row">
+    {% for row in following %}
+        <div class="col-lg-12">
+            {% if follow_type == 'followed' %}
+                <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
+                <span>{{ row.followed.username }}</span>
+            {% elif follow_type == 'followers' %}
+                <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
+                <span>{{ row.follower.username }}</span>
+            {% endif %}
+        <button class="pull-right btn btn-md btn-success">Takip</button>
+        </div>
+        {% empty %}
+        <p class="lead text-center text-danger">
+            Herhangi bir sonuç bulunamadı.
+        </p>
+    {% endfor %}
+</div>
