@@ -66,9 +66,10 @@ def user_profile(request, username):
         takip_ediyor_mu = Following.kullaniciyi_takip_ediyor_mu(follower=request.user, followed=user)
 
     return render(request, 'auths/profile/user_profile.html',
-                  context={'takip_edilenler': takip_edilenler, 'takipciler': takipciler, 'user': user,
+                  context={'takip_edilenler': takip_edilenler, 'takipciler': takipciler,
+                           'takip_ediyor_mu': takip_ediyor_mu, 'user': user,
                            'page': 'profile',
-                           'takip_ediyor_mu': takip_ediyor_mu})
+                           })
 
 
 def user_settings(request):
@@ -79,6 +80,10 @@ def user_settings(request):
     initial = {'sex': sex, 'bio': bio, 'profile_photo': profile_photo, 'dogum_tarihi': dogum_tarihi}
     form = UserProfileUpdateForm(initial=initial, instance=request.user, data=request.POST or None,
                                  files=request.FILES or None)
+    takip_ediyor_mu = False
+    takipci_ve_takip_edilen = Following.kullanici_takip_edilenler_ve_takipciler(request.user)
+    takipciler = takipci_ve_takip_edilen['takipciler']
+    takip_edilenler = takipci_ve_takip_edilen['takip_edilenler']
     if request.method == 'POST':
         if form.is_valid():
             user = form.save(commit=True)
@@ -95,12 +100,19 @@ def user_settings(request):
             return HttpResponseRedirect(reverse('user-profile', kwargs={'username': user.username}))
     else:
         messages.warning(request, 'Lütfen form alanlarını doğru giriniz', extra_tags='danger')
-    return render(request, 'auths/profile/settings.html', context={'form': form, 'page': 'settings'})
+    return render(request, 'auths/profile/settings.html', context={
+        'takip_edilenler': takip_edilenler, 'takipciler': takipciler,
+        'takip_ediyor_mu': takip_ediyor_mu, 'form': form, 'page': 'settings'})
 
 
 def user_password_change(request):
     # form = UserPasswordChangeForm(user=request.user, data=request.POST or None)
     form = UserPasswordChangeForm2(user=request.user, data=request.POST or None)
+    takip_ediyor_mu = False
+    takipci_ve_takip_edilen = Following.kullanici_takip_edilenler_ve_takipciler(request.user)
+    takipciler = takipci_ve_takip_edilen['takipciler']
+    takip_edilenler = takipci_ve_takip_edilen['takip_edilenler']
+
     if form.is_valid():
         # new_password = form.cleaned_data.get('new_password')
         # request.user.set_password(new_password)
@@ -111,9 +123,21 @@ def user_password_change(request):
         messages.success(request, 'Tebrikler parolanın başırı ile güncelendi', extra_tags='success')
         return HttpResponseRedirect(reverse('user-profile', kwargs={'username': request.user.username}))
 
-    return render(request, 'auths/profile/password_change.html', context={'form': form, 'page': 'password-change'})
+    return render(request, 'auths/profile/password_change.html', context={
+        'takip_edilenler': takip_edilenler, 'takipciler': takipciler,
+        'takip_ediyor_mu': takip_ediyor_mu, 'form': form, 'page': 'password-change'})
 
 
 def user_about(request, username):
     user = get_object_or_404(User, username=username)
-    return render(request, 'auths/profile/about_me.html', context={'user': user, 'page': 'about'})
+    takip_ediyor_mu = False
+    takipci_ve_takip_edilen = Following.kullanici_takip_edilenler_ve_takipciler(user)
+    takipciler = takipci_ve_takip_edilen['takipciler']
+    takip_edilenler = takipci_ve_takip_edilen['takip_edilenler']
+
+    if user != request.user:
+        takip_ediyor_mu = Following.kullaniciyi_takip_ediyor_mu(follower=request.user, followed=user)
+
+    return render(request, 'auths/profile/about_me.html', context={
+        'takip_edilenler': takip_edilenler, 'takipciler': takipciler,
+        'takip_ediyor_mu': takip_ediyor_mu, 'user': user, 'page': 'about'})
