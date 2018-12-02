@@ -41,19 +41,23 @@ def followed_or_followers_list(request, follow_type):
     username = request.GET.get('username', None)
     if not username:
         raise Http404
-    user = get_object_or_404(User, username=username)
 
+    user = get_object_or_404(User, username=username)
+    my_followed = Following.get_followed_username(user=request.user)
     if follow_type == 'followed':
         takip_edilenler = Following.get_followed(user=user)
         html = render_to_string('following/profile/include/following_followed_list.html', context={
-            'following': takip_edilenler, 'follow_type': follow_type}, request=request)
-        # kullanıcının takip ettikleri
+            'following': takip_edilenler, 'my_followed': my_followed, 'follow_type': follow_type,
+        }, request=request)
+        # kullanıcın takip ettiği kişiler
+
     elif follow_type == 'followers':
+        # kullanıcıyı takip eden kişileri göster
         takipciler = Following.get_followers(user=user)
-        # kullanının takipçileri
         html = render_to_string('following/profile/include/following_followed_list.html', context={
-            'following': takipciler, 'follow_type': follow_type}, request=request)
+            'following': takipciler, 'follow_type': follow_type, 'my_followed': my_followed}, request=request)
+
     else:
         raise Http404
-    data.update(({'html': html}))
+    data.update({'html': html})
     return JsonResponse(data=data)

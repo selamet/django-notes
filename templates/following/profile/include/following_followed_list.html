@@ -1,16 +1,30 @@
+{% load following_system %}
 <div class="row">
     {% for row in following %}
-        <div class="col-lg-12">
+        <div style="margin-top: 10px;margin-bottom: 10px;" class="col-lg-12">
             {% if follow_type == 'followed' %}
                 <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
                 <span>{{ row.followed.username }}</span>
+                {% if row.followed != request.user %}
+                    {% if row.followed|who_is_my_followed:my_followed %}
+                        {% include 'following/profile/include/button_include/takip_birak_button.html' %}
+                    {% else %}
+                        {% include 'following/profile/include/button_include/takip_et_button.html' %}
+                    {% endif %}
+                {% endif %}
             {% elif follow_type == 'followers' %}
                 <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
                 <span>{{ row.follower.username }}</span>
+                {% if row.follower|who_is_my_followed:my_followed %}
+                    {% include 'following/profile/include/button_include/takip_birak_button.html' %}
+
+                {% else %}
+                    {% include 'following/profile/include/button_include/takip_et_button.html' %}
+
+                {% endif %}
             {% endif %}
-        <button class="pull-right btn btn-md btn-success">Takip</button>
         </div>
-        {% empty %}
+    {% empty %}
         <p class="lead text-center text-danger">
             Herhangi bir sonuç bulunamadı.
         </p>
