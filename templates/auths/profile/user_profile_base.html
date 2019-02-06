@@ -3,6 +3,8 @@
 {% block title %} {{ user.profile.get_screen_name }}{% endblock %}
 
 {% block ust_icerik %}
+
+
     <script type="text/javascript" rel="script">
         $(document).ready(function () {
             $("#user_following").on('click', '.follow_button', function () {
@@ -10,6 +12,7 @@
                 var $url = $this.attr('url');
                 var $follow_type = $this.attr("follow_type");
                 var $modal = $("#profile_following_modal");
+                $modal.attr('follow_type', $follow_type)
                 var $username = $this.attr('username');
                 console.log($url);
                 $modal.modal('show');
@@ -53,6 +56,45 @@
                     }
                 })
 
+            })
+            $("#profile_following_modal").on('click', '#follow_list .follow .follow-button', function (e) {
+                var $this = $(this);
+                var $modal_body = $this.closest('.modal-body');
+                var $span = $($this.closest('.follow').find('span'));
+                var $modal = $(this.closest('.modal'));
+                var $owner = $modal.attr('owner')
+                var $follow_type = $modal.attr('follow_type');
+                var takip_eden = $span.attr('takip_eden');
+                var takip_edilen = $span.attr('takip_edilen');
+                var url = "{% url 'modal-takip-et-cikar' %}";
+                var data = {
+                    owner: $owner,
+                    follow_type: $follow_type,
+                    follower_username: takip_eden,
+                    followed_username: takip_edilen
+                };
+
+                $.ajax({
+                    url: url,
+                    type: "GET",
+                    dataType: "json",
+                    data: data,
+                    success: function (data) {
+                        if (data.owner) {
+                            $modal_body.html(data.html);
+                            $("#user_following").html(data.html_takip_render)
+                        } else {
+                            if (data.takip_durumu) {
+                                $this.removeClass('btn-success');
+                                $this.addClass('btn-danger');
+                            } else {
+                                $this.removeClass('btn-danger');
+                                $this.addClass('btn-success');
+                            }
+                            $this.html(data.msg);
+                        }
+                    }
+                })
             })
         })
 

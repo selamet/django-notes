@@ -1,10 +1,11 @@
 {% load following_system %}
-<div class="row">
+<div id="follow_list" class="row">
     {% for row in following %}
-        <div style="margin-top: 10px;margin-bottom: 10px;" class="col-lg-12">
+        <div style="margin-top: 10px;margin-bottom: 10px;" class="follow col-lg-12">
             {% if follow_type == 'followed' %}
                 <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
-                <span>{{ row.followed.username }}</span>
+                <span takip_edilen="{{ row.followed.username }}"
+                      takip_eden="{{ request.user.username }}">{{ row.followed.username }}</span>
                 {% if row.followed != request.user %}
                     {% if row.followed|who_is_my_followed:my_followed %}
                         {% include 'following/profile/include/button_include/takip_birak_button.html' %}
@@ -14,7 +15,8 @@
                 {% endif %}
             {% elif follow_type == 'followers' %}
                 <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
-                <span>{{ row.follower.username }}</span>
+                <span takip_edilen="{{ row.follower.username }}"
+                takip_eden="{{ request.user.username }}">{{ row.follower.username }}</span>
                 {% if row.follower|who_is_my_followed:my_followed %}
                     {% include 'following/profile/include/button_include/takip_birak_button.html' %}
 
