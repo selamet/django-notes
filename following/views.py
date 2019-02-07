@@ -26,12 +26,12 @@ def kullanici_modal_takip_et_cikar(request):
         following = []
         if follow_type == "followed":
             following = Following.get_followed(user=request.user)
-        elif follow_type == "followers":
-            following = Following.get_followers(user=request.user)
-
-        html = render_to_string('following/profile/include/following_followed_list.html', context={
-            'following': following, 'my_followed': my_followed, 'follow_type': follow_type}, request=request)
-        data.update({'html_takip_render': html_render_takip_durum, 'html': html, 'owner': True})
+            followers_and_followed_paginate(following, 1)
+            html = render_to_string('following/profile/include/following_followed_list.html', context={
+                'following': following, 'my_followed': my_followed, 'follow_type': follow_type}, request=request)
+            data.update({'html': html})
+        data.update(
+            {'follow_type': follow_type, 'html_takip_render': html_render_takip_durum, 'html': html, 'owner': True})
     else:
         data.update({'owner': False})
     return JsonResponse(data=data)

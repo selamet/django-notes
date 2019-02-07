@@ -83,13 +83,26 @@
                     data: data,
                     success: function (data) {
                         if (data.owner) {
-                            $modal_body.html(data.html);
+                            if (data.follow_type === 'followed') {
+                                $modal_body.find("#follow_list").html(data.html)
+                            } else {
+                                if (data.takip_durumu) {
+                                    $this.removeClass('btn-success');
+                                    $this.addClass('btn-danger');
+                                } else {
+                                    $this.removeClass('btn-danger');
+                                    $this.addClass('btn-success');
+
+                                    $this.html(data.msg);
+                                }
+                            }
                             $("#user_following").html(data.html_takip_render)
                         } else {
                             if (data.takip_durumu) {
                                 $this.removeClass('btn-success');
                                 $this.addClass('btn-danger');
-                            } else {
+                            }
+                            else {
                                 $this.removeClass('btn-danger');
                                 $this.addClass('btn-success');
                             }
