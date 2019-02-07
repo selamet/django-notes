@@ -1,0 +1,13 @@
+{% if following.has_other_pages %}
+    {% if following.has_next %}
+        <div class="row text-center">
+            <a id="follow_paginate" username="{{ username }}"
+               href="{% url 'followed-or-followers-list' follow_type %}?page={{ following.next_page_number }}&username={{ username }}"
+               class="btn btn-link">Daha
+                fazla göster</a>
+
+        </div>
+    {% endif %}
+
+{% endif %}
+

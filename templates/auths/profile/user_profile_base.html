@@ -28,13 +28,14 @@
                     dataType: 'json',
                     data: {'username': $username},
                     success: function (data) {
-                        $modal.find('.modal-body').html(data.html);
+                        $modal.find('#follow_paginate').closest('div').remove();
+                        $modal.find('.modal-body #follow_list').html('').prepend(data.html).after('').after(data.html_paginate);
                         $modal.modal('show');
-
                     }
                 })
 
             });
+
             $("#takip_et_cikar_button").click(function () {
                 var $this = $(this);
                 var $url = $this.attr('url');
@@ -56,7 +57,7 @@
                     }
                 })
 
-            })
+            });
             $("#profile_following_modal").on('click', '#follow_list .follow .follow-button', function (e) {
                 var $this = $(this);
                 var $modal_body = $this.closest('.modal-body');
@@ -78,6 +79,7 @@
                     url: url,
                     type: "GET",
                     dataType: "json",
+
                     data: data,
                     success: function (data) {
                         if (data.owner) {
@@ -96,7 +98,25 @@
                     }
                 })
             })
-        })
+        }).on('click', '#follow_paginate', function (e) {
+            e.preventDefault();
+            var $this = $(this);
+            var $follow_list = $this.closest('.modal').find('#follow_list');
+            var $follow_paginate = $this.closest('.modal').find('#follow_paginate');
+            var url = $this.attr('href');
+            $.ajax({
+                url: url,
+                dataType: 'json',
+                method: "GET",
+                success: function (data) {
+                    if (data.is_valid) {
+                        $follow_list.append(data.html);
+                        $follow_paginate.remove();
+                        $follow_list.after(data.html_paginate);
+                    }
+                }
+            })
+        });
 
     </script>
 {% endblock %}

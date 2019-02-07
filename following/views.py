@@ -87,6 +87,11 @@ def followed_or_followers_list(request, follow_type):
         html = render_to_string('following/profile/include/following_followed_list.html', context={
             'following': takip_edilenler, 'my_followed': my_followed, 'follow_type': follow_type,
         }, request=request)
+
+        html_paginate = render_to_string('following/profile/include/button_include/show_more_button.html',
+                                         context={'username': user.username, 'following': takip_edilenler,
+                                                  'follow_type': follow_type})
+
         # kullanıcın takip ettiği kişiler
 
     elif follow_type == 'followers':
@@ -95,10 +100,13 @@ def followed_or_followers_list(request, follow_type):
         takipciler = followers_and_followed_paginate(takipciler, page=page)
         html = render_to_string('following/profile/include/following_followed_list.html', context={
             'following': takipciler, 'follow_type': follow_type, 'my_followed': my_followed}, request=request)
+        html_paginate = render_to_string('following/profile/include/button_include/show_more_button.html',
+                                         context={'username': user.username, 'following': takipciler,
+                                                  'follow_type': follow_type})
 
     else:
         raise Http404
-    data.update({'html': html})
+    data.update({'html': html, 'html_paginate': html_paginate})
     return JsonResponse(data=data)
 
 

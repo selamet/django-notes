@@ -1,34 +1,34 @@
 {% load following_system %}
-<div id="follow_list" class="row">
-    {% for row in following %}
-        <div style="margin-top: 10px;margin-bottom: 10px;" class="follow col-lg-12">
-            {% if follow_type == 'followed' %}
-                <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
-                <span takip_edilen="{{ row.followed.username }}"
-                      takip_eden="{{ request.user.username }}">{{ row.followed.username }}</span>
-                {% if row.followed != request.user %}
-                    {% if row.followed|who_is_my_followed:my_followed %}
-                        {% include 'following/profile/include/button_include/takip_birak_button.html' %}
-                    {% else %}
-                        {% include 'following/profile/include/button_include/takip_et_button.html' %}
-                    {% endif %}
-                {% endif %}
-            {% elif follow_type == 'followers' %}
-                <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
-                <span takip_edilen="{{ row.follower.username }}"
-                takip_eden="{{ request.user.username }}">{{ row.follower.username }}</span>
-                {% if row.follower|who_is_my_followed:my_followed %}
+{% for row in following %}
+    <div style="margin-top: 10px;margin-bottom: 10px;" class="follow col-lg-12">
+        {% if follow_type == 'followed' %}
+            <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
+            <span takip_edilen="{{ row.followed.username }}"
+                  takip_eden="{{ request.user.username }}">{{ row.followed.username }}</span>
+            {% if row.followed != request.user %}
+                {% if row.followed|who_is_my_followed:my_followed %}
                     {% include 'following/profile/include/button_include/takip_birak_button.html' %}
-
                 {% else %}
                     {% include 'following/profile/include/button_include/takip_et_button.html' %}
-
                 {% endif %}
             {% endif %}
-        </div>
-    {% empty %}
-        <p class="lead text-center text-danger">
-            Herhangi bir sonuç bulunamadı.
-        </p>
-    {% endfor %}
-</div>
+        {% elif follow_type == 'followers' %}
+            <img class="img-circle" style="width:70px" src="{{ row.followed.userprofile.get_profile_photo }}">
+            <span takip_edilen="{{ row.follower.username }}"
+                  takip_eden="{{ request.user.username }}">{{ row.follower.username }}</span>
+            {% if row.follower|who_is_my_followed:my_followed %}
+                {% include 'following/profile/include/button_include/takip_birak_button.html' %}
+
+            {% else %}
+                {% include 'following/profile/include/button_include/takip_et_button.html' %}
+
+            {% endif %}
+        {% endif %}
+    </div>
+{% empty %}
+    <p class="lead text-center text-danger">
+        Herhangi bir sonuç bulunamadı.
+    </p>
+{% endfor %}
+
+
