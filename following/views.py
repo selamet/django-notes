@@ -4,7 +4,7 @@ from django.shortcuts import get_object_or_404, Http404
 
 from .models import Following
 from django.template.loader import render_to_string
-
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 
 
@@ -75,6 +75,7 @@ def sub_kullanici_takip_et_cikar(request):
 def followed_or_followers_list(request, follow_type):
     data = {'is_valid': True, 'html': ''}
     username = request.GET.get('username', None)
+    page = request.GET.get('page', 1)
     if not username:
         raise Http404
 
@@ -82,6 +83,7 @@ def followed_or_followers_list(request, follow_type):
     my_followed = Following.get_followed_username(user=request.user)
     if follow_type == 'followed':
         takip_edilenler = Following.get_followed(user=user)
+        takip_edilenler = followers_and_followed_paginate(queryset=takip_edilenler, page=page)
         html = render_to_string('following/profile/include/following_followed_list.html', context={
             'following': takip_edilenler, 'my_followed': my_followed, 'follow_type': follow_type,
         }, request=request)
@@ -90,6 +92,7 @@ def followed_or_followers_list(request, follow_type):
     elif follow_type == 'followers':
         # kullanıcıyı takip eden kişileri göster
         takipciler = Following.get_followers(user=user)
+        takipciler = followers_and_followed_paginate(takipciler, page=page)
         html = render_to_string('following/profile/include/following_followed_list.html', context={
             'following': takipciler, 'follow_type': follow_type, 'my_followed': my_followed}, request=request)
 
@@ -97,3 +100,14 @@ def followed_or_followers_list(request, follow_type):
         raise Http404
     data.update({'html': html})
     return JsonResponse(data=data)
+
+
+def followers_and_followed_paginate(queryset, page):
+    paginator = Paginator(queryset, 2)
+    try:
+        queryset = paginator.page(page)
+    except PageNotAnInteger:
+        queryset = paginator.page(1)
+    except EmptyPage:
+        queryset = paginator.page(paginator.num_pages)
+    return queryset

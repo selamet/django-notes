@@ -4,15 +4,7 @@
     <list default="true" id="a27f384d-a5fd-4f0b-89d3-e0e76ebe8df8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/following/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/following/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/following/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/following/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/auths/profile/user_profile_base.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/auths/profile/user_profile_base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/blog/post-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/following/profile/include/button_include/takip_birak_button.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/following/profile/include/button_include/takip_birak_button.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/following/profile/include/button_include/takip_et_button.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/following/profile/include/button_include/takip_et_button.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/following/profile/include/following_followed_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/following/profile/include/following_followed_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/following/profile/include/following_modal.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/following/profile/include/following_modal.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/messages.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/messages.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -41,17 +33,17 @@
     <session id="263974514">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="45" />
+          <entry key="project.closed" value="46" />
           <entry key="project.open.time.1" value="5" />
           <entry key="project.open.time.10" value="3" />
           <entry key="project.open.time.11" value="4" />
-          <entry key="project.open.time.12" value="2" />
+          <entry key="project.open.time.12" value="3" />
           <entry key="project.open.time.2" value="4" />
           <entry key="project.open.time.6" value="1" />
           <entry key="project.open.time.7" value="6" />
           <entry key="project.open.time.8" value="12" />
           <entry key="project.open.time.9" value="10" />
-          <entry key="project.opened" value="47" />
+          <entry key="project.opened" value="48" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -86,7 +78,7 @@
           <entry key="css" value="302" />
           <entry key="html" value="18429" />
           <entry key="md" value="2488" />
-          <entry key="py" value="26448" />
+          <entry key="py" value="26718" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
@@ -94,7 +86,7 @@
           <entry key="CSS" value="302" />
           <entry key="HTML" value="18429" />
           <entry key="Markdown" value="2479" />
-          <entry key="Python" value="26781" />
+          <entry key="Python" value="27051" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -106,11 +98,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/following/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
+            <state relative-caret-position="395">
+              <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
               <folding>
-                <marker date="1549464156139" expanded="true" signature="327:1816" ph="..." />
-                <marker date="1549464156139" expanded="true" signature="2487:3352" ph="..." />
+                <element signature="e#0#35#0" expanded="true" />
+                <marker date="1549551656235" expanded="true" signature="399:1888" ph="..." />
+                <marker date="1549551656235" expanded="true" signature="2559:3424" ph="..." />
+                <marker date="1549551656235" expanded="true" signature="4759:4760" ph="..." />
+                <marker date="1549551656235" expanded="true" signature="4759:4764" ph="..." />
               </folding>
             </state>
           </provider>
@@ -119,7 +114,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/following/profile/include/following_followed_list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-64">
+            <state relative-caret-position="15">
               <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
             </state>
           </provider>
@@ -128,7 +123,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/auths/profile/user_profile_base.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="854">
+            <state relative-caret-position="1365">
               <caret line="91" column="62" selection-start-line="91" selection-start-column="62" selection-end-line="91" selection-end-column="62" />
             </state>
           </provider>
@@ -146,10 +141,9 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/following/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-319">
+            <state relative-caret-position="30">
               <caret line="2" selection-start-line="2" selection-end-line="2" />
               <folding>
-                <element signature="e#0#28#0" expanded="true" />
                 <marker date="1543778964418" expanded="true" signature="105:110" ph="..." />
                 <marker date="1543778964418" expanded="true" signature="449:506" ph="..." />
                 <marker date="1543778964418" expanded="true" signature="829:909" ph="..." />
@@ -298,24 +292,6 @@
               <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
               <item name="following" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="auths" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="auths" type="462c0819:PsiDirectoryNode" />
-              <item name="profile" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -409,7 +385,7 @@
     <frame x="0" y="0" width="1280" height="800" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48757172" visible="true" weight="0.19789983" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.48757172" visible="true" weight="0.20113085" />
       <window_info id="Structure" order="1" sideWeight="0.5124283" side_tool="true" weight="0.15024233" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -753,17 +729,31 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/following/models.py">
+    <entry file="file://$PROJECT_DIR$/following/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-319">
-          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        <state relative-caret-position="395">
+          <caret line="94" column="19" selection-start-line="94" selection-start-column="19" selection-end-line="94" selection-end-column="19" />
           <folding>
-            <element signature="e#0#28#0" expanded="true" />
-            <marker date="1543778964418" expanded="true" signature="105:110" ph="..." />
-            <marker date="1543778964418" expanded="true" signature="449:506" ph="..." />
-            <marker date="1543778964418" expanded="true" signature="829:909" ph="..." />
-            <marker date="1543778964418" expanded="true" signature="1485:1486" ph="..." />
+            <element signature="e#0#35#0" expanded="true" />
+            <marker date="1549551656235" expanded="true" signature="399:1888" ph="..." />
+            <marker date="1549551656235" expanded="true" signature="2559:3424" ph="..." />
+            <marker date="1549551656235" expanded="true" signature="4759:4760" ph="..." />
+            <marker date="1549551656235" expanded="true" signature="4759:4764" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/following/profile/include/following_followed_list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/auths/profile/user_profile_base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1365">
+          <caret line="91" column="62" selection-start-line="91" selection-start-column="62" selection-end-line="91" selection-end-column="62" />
         </state>
       </provider>
     </entry>
@@ -774,27 +764,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/auths/profile/user_profile_base.html">
+    <entry file="file://$PROJECT_DIR$/following/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="854">
-          <caret line="91" column="62" selection-start-line="91" selection-start-column="62" selection-end-line="91" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/following/profile/include/following_followed_list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64">
-          <caret line="1" column="6" selection-start-line="1" selection-start-column="6" selection-end-line="1" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/following/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="33" column="79" selection-start-line="33" selection-start-column="79" selection-end-line="33" selection-end-column="79" />
+        <state relative-caret-position="30">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
           <folding>
-            <marker date="1549464156139" expanded="true" signature="327:1816" ph="..." />
-            <marker date="1549464156139" expanded="true" signature="2487:3352" ph="..." />
+            <marker date="1543778964418" expanded="true" signature="105:110" ph="..." />
+            <marker date="1543778964418" expanded="true" signature="449:506" ph="..." />
+            <marker date="1543778964418" expanded="true" signature="829:909" ph="..." />
+            <marker date="1543778964418" expanded="true" signature="1485:1486" ph="..." />
           </folding>
         </state>
       </provider>
