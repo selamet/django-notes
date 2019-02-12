@@ -112,16 +112,18 @@ def add_comment(request, slug):
 
 @login_required(login_url=reverse_lazy('user-login'))
 def add_or_remove_favorite(request, slug):
-    url = request.GET.get('next', None)
+    data = {'count': 0, 'status': 'deleted'}
     blog = get_object_or_404(Blog, slug=slug)
     favori_blog = FavoriteBlog.objects.filter(blog=blog, user=request.user)
-    if favori_blog.exists():
+    if favori_blog.exists():  # favoriler içerisinde ise
         favori_blog.delete()
     else:
         FavoriteBlog.objects.create(blog=blog, user=request.user)
-    if not url:
-        url = reverse('post-list')
-    return HttpResponseRedirect(url)
+        data.update({'status': 'added'})
+
+    count = blog.get_favorite_count()
+    data.update({'count': count})
+    return JsonResponse(data=data)
 
 
 @login_required(login_url=reverse_lazy('user-login'))
