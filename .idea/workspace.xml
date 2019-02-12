@@ -2,9 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a27f384d-a5fd-4f0b-89d3-e0e76ebe8df8" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/templates/blog/include/favorite/favorite-modal.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/blog/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/blog/post-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/blog/post-list.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -51,24 +53,25 @@
         <counts>
           <entry key="LICENSE" value="1" />
           <entry key="css" value="9" />
-          <entry key="gitignore" value="2" />
-          <entry key="html" value="134" />
+          <entry key="gitignore" value="3" />
+          <entry key="html" value="135" />
           <entry key="jpg" value="4" />
           <entry key="js" value="4" />
           <entry key="md" value="4" />
-          <entry key="py" value="148" />
+          <entry key="py" value="150" />
           <entry key="rnc" value="1" />
+          <entry key="sqlite3" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CSS" value="9" />
-          <entry key="HTML" value="134" />
+          <entry key="HTML" value="135" />
           <entry key="Image" value="4" />
           <entry key="JavaScript" value="4" />
           <entry key="Markdown" value="4" />
-          <entry key="PLAIN_TEXT" value="3" />
-          <entry key="Python" value="148" />
+          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="Python" value="150" />
           <entry key="RNG Compact" value="1" />
         </counts>
       </usages-collector>
@@ -77,17 +80,19 @@
           <entry key="Django Console" value="261" />
           <entry key="Python Console" value="63" />
           <entry key="css" value="302" />
-          <entry key="html" value="20290" />
+          <entry key="gitignore" value="10" />
+          <entry key="html" value="20422" />
           <entry key="md" value="2488" />
-          <entry key="py" value="27176" />
+          <entry key="py" value="27196" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="CSS" value="302" />
-          <entry key="HTML" value="20290" />
+          <entry key="HTML" value="20422" />
           <entry key="Markdown" value="2479" />
-          <entry key="Python" value="27509" />
+          <entry key="PLAIN_TEXT" value="10" />
+          <entry key="Python" value="27529" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts" />
@@ -99,11 +104,41 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/templates/blog/post-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1335">
-              <caret line="89" column="95" selection-start-line="89" selection-start-column="95" selection-end-line="89" selection-end-column="95" />
+            <state relative-caret-position="226">
+              <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
               <folding>
                 <element signature="e#1586#1609#0#HTML" expanded="true" />
+                <element signature="e#2577#2602#0#HTML" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/models.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="429">
+              <caret line="38" column="84" selection-start-line="38" selection-start-column="84" selection-end-line="38" selection-end-column="84" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/blog/include/favorite/favorite-modal.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#408#415#1#HTML" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/blog/forms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="153">
+              <caret line="49" column="27" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="27" />
             </state>
           </provider>
         </entry>
@@ -142,6 +177,9 @@
       <find>fallo</find>
       <find>takip_duru</find>
       <find>next</find>
+      <find>post-comme</find>
+      <find>kategori</find>
+      <find>title</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -150,8 +188,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/static/bootstrap/js/bootstrap.min.js" />
-        <option value="$PROJECT_DIR$/static/bootstrap/css/bootstrap-theme.min.css" />
         <option value="$PROJECT_DIR$/static/bootstrap/js/jquery.js" />
         <option value="$PROJECT_DIR$/templates/auths/profile/about_me.html" />
         <option value="$PROJECT_DIR$/auths/urls.py" />
@@ -175,7 +211,6 @@
         <option value="$PROJECT_DIR$/auths/forms.py" />
         <option value="$PROJECT_DIR$/templates/auths/profile/settings.html" />
         <option value="$PROJECT_DIR$/templates/blog/post-detail.html" />
-        <option value="$PROJECT_DIR$/blog/models.py" />
         <option value="$PROJECT_DIR$/templates/ogrenci_velisine_mesaj.html" />
         <option value="$PROJECT_DIR$/templates/deneme.html" />
         <option value="$PROJECT_DIR$/django_blog/settings.py" />
@@ -200,6 +235,9 @@
         <option value="$PROJECT_DIR$/following/views.py" />
         <option value="$PROJECT_DIR$/templates/auths/profile/user_profile_base.html" />
         <option value="$PROJECT_DIR$/blog/views.py" />
+        <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/blog/models.py" />
+        <option value="$PROJECT_DIR$/templates/blog/include/favorite/favorite-modal.html" />
         <option value="$PROJECT_DIR$/templates/blog/post-list.html" />
       </list>
     </option>
@@ -261,6 +299,13 @@
               <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="blog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="django-blogV2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="django-blogV2" type="462c0819:PsiDirectoryNode" />
+              <item name="templates" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="include" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -409,16 +454,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/static/img/default.jpg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auths/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="210">
-          <caret line="14" column="1" selection-start-line="14" selection-start-column="1" selection-end-line="14" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/auths/profile/about_me.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -489,9 +524,6 @@
           <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/static/bootstrap-datetime/bootstrap-datetime.css">
       <provider selected="true" editor-type-id="text-editor">
@@ -585,13 +617,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/blog/forms.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="687">
-          <caret line="81" column="4" selection-start-line="81" selection-start-column="4" selection-end-line="84" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/messages.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
@@ -631,13 +656,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="420">
           <caret line="28" column="23" selection-start-line="28" selection-start-column="23" selection-end-line="28" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/blog/models.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="653">
-          <caret line="89" column="19" selection-start-line="81" selection-start-column="4" selection-end-line="89" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -735,12 +753,46 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="10" selection-start-column="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db.sqlite3">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/forms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="49" column="27" selection-start-line="49" selection-start-column="19" selection-end-line="49" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/blog/include/favorite/favorite-modal.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#408#415#1#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/blog/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="429">
+          <caret line="38" column="84" selection-start-line="38" selection-start-column="84" selection-end-line="38" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/blog/post-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1335">
-          <caret line="89" column="95" selection-start-line="89" selection-start-column="95" selection-end-line="89" selection-end-column="95" />
+        <state relative-caret-position="226">
+          <caret line="93" column="33" selection-start-line="93" selection-start-column="33" selection-end-line="93" selection-end-column="33" />
           <folding>
             <element signature="e#1586#1609#0#HTML" expanded="true" />
+            <element signature="e#2577#2602#0#HTML" expanded="true" />
           </folding>
         </state>
       </provider>

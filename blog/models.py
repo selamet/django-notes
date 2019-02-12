@@ -15,7 +15,7 @@ def upload_to(instance, filename):
 
 
 class Kategori(models.Model):
-    isim = models.CharField(max_length=10, verbose_name='Kategori İsmi')
+    isim = models.CharField(max_length=10, verbose_name='Kategori İsmi',null=True)
 
     class Meta:
         verbose_name_plural = 'Kategoriler'
@@ -36,7 +36,7 @@ class Blog(models.Model):
 
     yayin_taslak = models.CharField(choices=YAYIN_TASLAK, max_length=6, null=True, blank=False)
     unique_id = models.CharField(max_length=100, editable=True, null=True)
-    kategoriler = models.ManyToManyField(to=Kategori, related_name='blog')
+    kategoriler = models.ManyToManyField(to=Kategori, related_name='blog', null=True)
     image = models.ImageField(default='default/marijuana.jpg', verbose_name='Resim', upload_to=upload_to,
                               null=True, help_text='Kapak Fotoğrafı Yükleyiniz', blank=True)
 
@@ -50,14 +50,14 @@ class Blog(models.Model):
 
     def get_comment_count(self):
         yorum_sayisi = self.comment.count()
-        if yorum_sayisi>0:
+        if yorum_sayisi > 0:
             return yorum_sayisi
         return "Bu gönderiye henüz yorum yapılmadı"
 
-
     def get_favorite_count(self):
-        favori_sayisi =self.favorite_blog.count()
+        favori_sayisi = self.favorite_blog.count()
         return favori_sayisi
+
     @classmethod
     def get_taslak_or_yayin(cls, taslak_yayin):
         return cls.objects.filter(yayin_taslak=taslak_yayin)
