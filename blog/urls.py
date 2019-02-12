@@ -1,7 +1,7 @@
 from django.contrib import admin
 from django.urls import path
 from blog.views import post_create, post_delete, post_list, post_update, post_detail, add_comment, \
-    add_or_remove_favorite
+    add_or_remove_favorite, post_list_favorite_user
 from django.conf.urls import url
 
 urlpatterns = [
@@ -11,5 +11,6 @@ urlpatterns = [
     url(r'^post-delete/(?P<slug>[-\w]+)/$', post_delete, name='post-delete'),
     url(r'^add-comment/(?P<slug>[-\w]+)/$', add_comment, name='add-comment'),
     url(r'^post-update/(?P<slug>[-\w]+)/$', post_update, name='post-update'),
+    url(r'^post-favorite-user/(?P<slug>[-\w]+)/$', post_list_favorite_user, name='post-list-favorite-user'),
     url(r'^add-remove-favorite/(?P<slug>[-\w]+)/$', add_or_remove_favorite, name='add-remove-favorite'),
 ]

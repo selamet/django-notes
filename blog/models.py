@@ -15,7 +15,7 @@ def upload_to(instance, filename):
 
 
 class Kategori(models.Model):
-    isim = models.CharField(max_length=10, verbose_name='Kategori İsmi',null=True)
+    isim = models.CharField(max_length=10, verbose_name='Kategori İsmi', null=True)
 
     class Meta:
         verbose_name_plural = 'Kategoriler'
@@ -78,6 +78,13 @@ class Blog(models.Model):
 
     def get_added_favorite_user(self):
         return self.favorite_blog.values_list('user__username', flat=True)
+
+    def get_added_favorite_user_as_object(self):
+        data_list = []
+        qs = self.favorite_blog.all()
+        for obj in qs:
+            data_list.append(obj.user)
+        return data_list
 
     def get_unique_slug(self):
         sayi = 0

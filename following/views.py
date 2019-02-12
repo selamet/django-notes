@@ -8,6 +8,20 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.contrib.auth.models import User
 
 
+def kullanici_takip_et_cikar_for_post(request):
+    data = {'html': ''}
+    response = sub_kullanici_takip_et_cikar(request)
+    takip_edilen_kullanici = response.get('followed')
+    my_followed_user = Following.get_followed_username(request.user)
+
+    html = render_to_string('blog/include/favorite/favorite-user-obj.html', context={
+        'user': takip_edilen_kullanici, 'my_followed_user': my_followed_user
+    }, request=request)
+
+    data.update({'html': html})
+    return JsonResponse(data=data)
+
+
 def kullanici_modal_takip_et_cikar(request):
     response = sub_kullanici_takip_et_cikar(request)
     follow_type = request.GET.get('follow_type')

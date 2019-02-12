@@ -13,6 +13,8 @@ from django.urls import reverse_lazy
 
 from .decorator import is_post
 
+from following.models import Following
+
 mesajlar = []
 
 
@@ -124,6 +126,16 @@ def add_or_remove_favorite(request, slug):
     count = blog.get_favorite_count()
     data.update({'count': count})
     return JsonResponse(data=data)
+
+
+@login_required(login_url=reverse_lazy('user-login'))
+def post_list_favorite_user(request, slug):
+    blog = get_object_or_404(Blog, slug=slug)
+    user_list = blog.get_added_favorite_user_as_object()
+    my_followed_user = Following.get_followed_username(request.user)
+    html = render_to_string('blog/include/favorite/favorite-user-list.html',
+                            context={'my_followed_user': my_followed_user, 'user_list': user_list}, request=request)
+    return JsonResponse(data={'html': html})
 
 
 @login_required(login_url=reverse_lazy('user-login'))
