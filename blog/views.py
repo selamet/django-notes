@@ -130,12 +130,23 @@ def add_or_remove_favorite(request, slug):
 
 @login_required(login_url=reverse_lazy('user-login'))
 def post_list_favorite_user(request, slug):
+    page = request.GET.get('page', 1)
     blog = get_object_or_404(Blog, slug=slug)
     user_list = blog.get_added_favorite_user_as_object()
+    paginator = Paginator(user_list, 1)
+    try:
+        user_list = paginator.page(page)
+    except PageNotAnInteger:
+        user_list = paginator.page(1)
+    except EmptyPage:
+        user_list = paginator.page(paginator.num_pages)
     my_followed_user = Following.get_followed_username(request.user)
     html = render_to_string('blog/include/favorite/favorite-user-list.html',
                             context={'my_followed_user': my_followed_user, 'user_list': user_list}, request=request)
-    return JsonResponse(data={'html': html})
+    page_html = render_to_string('blog/include/favorite/buttons/show_more_button.html',
+                                 context={'post': blog, 'user_list': user_list}, request=request)
+
+    return JsonResponse(data={'html': html, 'page_html': page_html})
 
 
 @login_required(login_url=reverse_lazy('user-login'))

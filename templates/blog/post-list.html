@@ -33,6 +33,8 @@
                 e.preventDefault();
                 var $this = $(this);
                 var $url = $this.attr('url');
+                var $baslik = $this.closest('div.post').find('h3 a').html();
+                console.log($baslik);
                 var $modal = $("#post-favorite-modal");
 
                 $.ajax({
@@ -43,7 +45,8 @@
                         $modal.modal('show');
                     },
                     success: function (data) {
-                        $modal.find('.modal-body').html(data.html)
+                        $modal.find('.modal-body').html(data.html).append(data.page_html);
+                        $modal.find('.modal-title').html($baslik);
                     }
                 })
             });
@@ -54,7 +57,7 @@
                 var $url = $this.attr('url');
                 var $followed_user = $this.attr('followed_username');
                 var $follower_user = $this.attr('follower_username');
-                console.log($follower_user , $followed_user);
+                console.log($follower_user, $followed_user);
                 var new_data = {'followed_username': $follower_user, 'follower_username': $followed_user};
                 $.ajax({
                     url: $url,
@@ -63,6 +66,22 @@
                     data: new_data,
                     success: function (data) {
                         $row.html(data.html);
+                    }
+                })
+            }).on('click', '#favorite_paginate', function (e) {
+                e.preventDefault();
+                var $this = $(this);
+                var $this_parent = $this.closest('div');
+                var $user_favorite_list = $this.closest('.modal-body').find('#user_favorite_list');
+                var $url = $this.attr('href');
+                $.ajax({
+                    url: $url,
+                    method: "GET",
+                    success: function (data) {
+                        $user_favorite_list.append(data.html);
+                        $user_favorite_list.after(data.page_html);
+                        $this_parent.remove();
+
                     }
                 })
             })
@@ -168,6 +187,10 @@
 
 
 
+
+
+
+
                                             {{ posts.previous_page_number }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">&laquo;</a>
                                     </li>
                                 {% else %}
@@ -194,6 +217,10 @@
 
 
 
+
+
+
+
                                                 {{ i }}{% if request.GET.taslak_yayin %}&taslak_yayin={{ request.GET.taslak_yayin }}{% endif %}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}">{{ i }}</a>
                                         </li>
                                     {% endif %}
@@ -201,6 +228,10 @@
 
                                 {% if posts.has_next %}
                                     <li><a href="?page=
+
+
+
+
 
 
 
