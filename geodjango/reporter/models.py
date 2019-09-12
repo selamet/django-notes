@@ -14,3 +14,19 @@ class Incidences(models.Model):
 
     class Meta:
         verbose_name_plural = 'Incidences'
+
+    def __str__(self):
+        self.counties
+
+
+class Countie(models.Model):
+    counties = models.CharField(max_length=25)
+    codes = models.IntegerField()
+    cty_code = models.CharField(max_length=24)
+    dis = models.IntegerField()
+    geom = models.MultiPolygonField(srid=4326)
+
+    def __unicode__(self):
+        return self.counties
+
+
