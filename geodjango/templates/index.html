@@ -12,22 +12,23 @@
     <style type="text/css">
         #gis {
             width: 80%;
-            height: 800px;
+            height: 500px;
         }
     </style>
     <script type="text/javascript" src="{% static 'dist/leaflet.ajax.js' %}"></script>
-    <script type="text/javascript">
-        function out_layers(map, options) {
 
-            var datasets = new L.geoJSON.AJAX("{% url 'county-data' %}", {});
-            console.log(datasets);
-            datasets.addTo(map);
-
-        }
-    </script>
-</head>
 <body>
+<script type="text/javascript">
+    function our_layers(map, options) {
 
+        var datasets = new L.GeoJSON.AJAX("{% url 'county-data' %}", {
+
+        });
+        datasets.addTo(map);
+
+    }
+</script>
+</head>
 <h3> We are heroes</h3>
 <br>
 
