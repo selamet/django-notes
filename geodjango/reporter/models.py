@@ -15,9 +15,6 @@ class Incidences(models.Model):
     class Meta:
         verbose_name_plural = 'Incidences'
 
-    def __str__(self):
-        self.counties
-
 
 class Countie(models.Model):
     counties = models.CharField(max_length=25)
@@ -29,4 +26,5 @@ class Countie(models.Model):
     def __unicode__(self):
         return self.counties
 
-
+    class Meta:
+        verbose_name_plural = 'Counties'

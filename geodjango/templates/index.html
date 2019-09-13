@@ -22,9 +22,20 @@
     function our_layers(map, options) {
 
         var datasets = new L.GeoJSON.AJAX("{% url 'county-data' %}", {
-
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup(feature.properties.counties.toString());
+            }
         });
+
+        var points = new L.GeoJSON.AJAX('{% url 'incidences' %}', {
+            onEachFeature: function (feature, layer) {
+                layer.bindPopup(feature.properties.name.toString());
+            }
+        });
+
         datasets.addTo(map);
+        points.addTo(map);
+
 
     }
 </script>
