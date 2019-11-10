@@ -79,7 +79,12 @@
 </head>
 <h3> We are heroes</h3>
 <br>
+{% csrf_token %}
 
-{% leaflet_map "gis" callback="window.our_layers" %}
+<form method="POST" action="">
+    {% csrf_token %}
+    {{ form.media }}
+</form>
+
 </body>
 </html>
